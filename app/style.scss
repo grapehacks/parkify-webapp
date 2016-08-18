@@ -1,0 +1,9 @@
+ul {
+  background: #f00;
+  li {
+    color: yellow;
+    .active {
+      color: green;
+    }
+  }
+}
