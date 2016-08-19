@@ -6,7 +6,7 @@ import Footer from './Footer';
 class Main extends React.Component {
     render() {
         return (
-            <div className="gp-main">
+            <div className="gp-main container">
                 <Header>
                     <ul>
                         <li >

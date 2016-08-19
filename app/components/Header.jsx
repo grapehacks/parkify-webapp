@@ -7,7 +7,7 @@ class Header extends React.Component {
     render() {
         return (
             <div className='gp-header'>
-                <div className="container menu">
+                <div className="menu">
                     <Link to='/app/home' activeClassName='active'>
                         <div className="logo pull-left"></div>
                     </Link>
