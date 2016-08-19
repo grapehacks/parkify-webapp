@@ -1,5 +1,18 @@
-body {
+html, body, #app, .gp-main{
+  height: 100%;
+}
+body{
   min-width: 320px;
+}
+.gp-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.gp-content {
+  width: 100%;
+  height: auto;
+  flex: 1;
 }
 .dn {
   display: none;

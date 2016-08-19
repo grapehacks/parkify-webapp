@@ -1,11 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Header from './Header';
+import Footer from './Footer';
 
 class Main extends React.Component {
     render() {
         return (
-            <div>
+            <div className="gp-main">
                 <Header>
                     <ul>
                         <li >
@@ -21,9 +22,10 @@ class Main extends React.Component {
                     </ul>
                 </Header>
 
-                <div>
+                <div className="gp-content">
                     {this.props.children}
                 </div>
+                <Footer />
             </div>
         )
     }
