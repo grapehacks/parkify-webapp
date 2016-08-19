@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import MessagesBadgedIcon from './../containers/MessagesBadgedIcon';
+import LogoutButton from './../containers/LogoutButton';
 
 class Header extends React.Component {
     render() {
@@ -11,9 +12,7 @@ class Header extends React.Component {
                         <div className="logo pull-left"></div>
                     </Link>
                     <div className="icons pull-right">
-                        <Link to='/login' activeClassName='active'>
-                            <i className="fa fa-sign-out" aria-hidden="true"></i>
-                        </Link>
+                        <LogoutButton/>
                         <Link to='/app/settings' activeClassName='active'>
                             <i className="fa fa-cog" aria-hidden="true"></i>
                         </Link>
