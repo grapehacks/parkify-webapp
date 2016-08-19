@@ -7,7 +7,7 @@ const authAPI = (baseURL) => {
             // return new Promise((resolve) => {
             //     setTimeout(() => {
             //         resolve({});
-            //     }, 4000)
+            //     }, 200)
             // });
             return axios.post(baseURL + '/authenticate', credentials).then(res => {
                 localStorage.setItem('token', res.data.token);
