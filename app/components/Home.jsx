@@ -1,11 +1,15 @@
 import React from 'react';
-import SubscribeButton from './../containers/SubscribeButton.jsx';
+import SubscriptionButton from './SubscriptionButton';
+import NextDrawDate from './NextDrawDate';
+import SubscriptionStatusLabel from './SubscriptionStatusLabel';
 
 class Home extends React.Component {
     render() {
         return (
-            <div>
-                <SubscribeButton className='sub-btn'/>
+            <div className="content">
+                <SubscriptionButton/>
+                <NextDrawDate/>
+                <SubscriptionStatusLabel/>
             </div>
         )
     }
