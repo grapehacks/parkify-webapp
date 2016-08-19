@@ -7,7 +7,7 @@ class Home extends React.Component {
     render() {
         return (
             <div className="content">
-                <SubscriptionButton/>
+                <SubscriptionButton subscribe={true} alwaysSubscribe={true}/>
                 <NextDrawDate/>
                 <SubscriptionStatusLabel/>
             </div>
