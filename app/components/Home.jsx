@@ -9,7 +9,7 @@ class Home extends React.Component {
             <div className="content">
                 <SubscriptionButton subscribe={true} alwaysSubscribe={true}/>
                 <NextDrawDate date='28-13-2016'/>
-                <SubscriptionStatusLabel/>
+                <SubscriptionStatusLabel participate={1}/>
             </div>
         )
     }
