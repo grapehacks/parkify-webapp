@@ -9,13 +9,23 @@ class Main extends React.Component {
                 <Header>
                     <ul>
                         <li >
-                            <Link to='/' activeClassName='active'>
+                            <Link to='/app/home' activeClassName='active'>
                                 Home
                             </Link>
                         </li>
                         <li >
-                            <Link to='/users' activeClassName='active'>
-                                Users
+                            <Link to='/app/messages' activeClassName='active'>
+                                Messages
+                            </Link>
+                        </li>
+                        <li >
+                            <Link to='/app/settings' activeClassName='active'>
+                                Settings
+                            </Link>
+                        </li>
+                        <li >
+                            <Link to='/login' activeClassName='active'>
+                                Login
                             </Link>
                         </li>
                     </ul>
