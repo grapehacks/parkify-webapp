@@ -7,7 +7,7 @@ class SubscriptionStatusLabel extends React.Component {
     render() {
         return (
             <div className="status on">
-                Zapisano
+                Subscribed
             </div>
         )
     }

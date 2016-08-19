@@ -7,7 +7,7 @@ class NextDrawDate extends React.Component {
     render() {
         return (
             <div className="next-draw">
-                <div className="">Data najbliższego losowania</div>
+                <div className="">Next draw date</div>
                 <div className="date"><i className="fa fa-calendar-times-o" aria-hidden="true"></i> 23-08-2016</div>
             </div>
         )
