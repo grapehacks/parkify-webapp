@@ -12,7 +12,7 @@ body {
 .logo {
   width: 93px;
   height: 50px;
-  background: url('../img/logo.png') no-repeat;
+  background: url('/img/logo.png') no-repeat;
   background-size: contain;
 }
 .icons i {
@@ -93,7 +93,7 @@ body {
 .turn-button .icon {
   width: 50px;
   height: 50px;
-  background: url('../img/off-button-white.png') no-repeat;
+  background: url('/img/off-button-white.png') no-repeat;
   background-size: contain;
   position: absolute;
   left: calc(50% - 25px);
@@ -136,7 +136,7 @@ footer {
   margin-bottom: 50px;
 }
 .confirmation .logo {
-  background: url('../img/logo-white.png') no-repeat;
+  background: url('/img/logo-white.png') no-repeat;
   background-size: contain;
 }
 .confirmation p {
@@ -194,7 +194,7 @@ footer {
 .login .logo {
   width: 200px;
   height: 108px;
-  background: url('../img/logo.png') no-repeat;
+  background: url('/img/logo.png') no-repeat;
   background-size: contain;
   margin: 40px auto;
 }

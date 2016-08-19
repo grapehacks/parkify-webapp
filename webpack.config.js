@@ -8,6 +8,7 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 var config = {
     entry: './app/main.jsx',
     output: {
+        publicPath: '/',
         path: __dirname + '/build',
         filename: 'bundle.js'
     },
