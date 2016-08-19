@@ -1,0 +1,34 @@
+.login {
+  input {
+    font-size: 1.5em;
+    font-weight: 300;
+    border-bottom: solid 1px #ddd;
+    &:focus {
+      outline: 0;
+    }
+  }
+  .gp-input {
+    margin-bottom: 20px;
+  }
+  .gp-login-submit-btn {
+    font-weight: 600;
+    transition: all 0.2s;
+    background: #7dcac7;
+    text-transform: uppercase;
+    border: 0;
+    padding: 15px 50px;
+    border-radius: 50px;
+
+    &:hover, &:active, &:focus {
+      background: #64B1AE;
+      border: 0;
+    }
+    &:active {
+      &:focus {
+        background: #64B1AE;
+        border: 0;
+        outline: 0;
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 html, body, #app, .gp-main{
   height: 100%;
+  font-family: 'Open Sans';
 }
 body{
   min-width: 320px;
@@ -209,7 +210,7 @@ footer {
   height: 108px;
   background: url('/img/logo.png') no-repeat;
   background-size: contain;
-  margin: 40px auto;
+  margin: 40px auto 80px;
 }
 .login form {
   margin-bottom: 50px;
