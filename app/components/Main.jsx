@@ -32,7 +32,7 @@ class Main extends React.Component {
                     </ul>
                 </Header>
 
-                <div className="gp-content">
+                <div className="container gp-content">
                     {this.props.children}
                 </div>
                 <Footer />

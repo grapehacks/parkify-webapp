@@ -3,7 +3,9 @@ import React, {Component, PropTypes} from 'react';
 class Messages extends Component {
     render() {
         return (
-            <div>Messages</div>
+            <div>
+                Messages
+            </div>
         );
     }
 }
