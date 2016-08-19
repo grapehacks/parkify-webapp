@@ -1,9 +1,214 @@
-ul {
-  background: #f00;
-  li {
-    color: yellow;
-    .active {
-      color: green;
-    }
-  }
+body {
+  min-width: 320px;
+}
+.dn {
+  display: none;
+}
+.menu {
+  height: 70px;
+  border-bottom: 1px solid #ccc;
+  padding-top: 10px;
+}
+.logo {
+  width: 93px;
+  height: 50px;
+  background: url('../img/logo.png') no-repeat;
+  background-size: contain;
+}
+.icons i {
+  width: 50px;
+  height: 50px;
+  display: block;
+  float: left;
+  text-align: center;
+  line-height: 50px;
+  font-size: 25px;
+  position: relative;
+}
+.icons i .notification {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  color: #fff;
+  text-align: center;
+  line-height: 15px;
+  font-size: 10px;
+  font-weight: bold;
+}
+.icons i .notification.on {
+  background: #7dcac7;
+}
+.icons i .notification.off {
+  background: #ca7d7d;
+}
+.content {
+  padding: 25px 0;
+  text-align: center;
+}
+.turn-button {
+  width: 210px;
+  height: 210px;
+  border-radius: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.turn-button.on {
+  background: #7dcaa4;
+  background: -moz-linear-gradient(top,  #7dcaa4 0%, #7dcac7 100%);
+  background: -webkit-linear-gradient(top,  #7dcaa4 0%,#7dcac7 100%);
+  background: linear-gradient(to bottom,  #7dcaa4 0%,#7dcac7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dcaa4', endColorstr='#7dcac7',GradientType=0 );
+}
+.turn-button.off {
+  background: #ca937d;
+  background: -moz-linear-gradient(top,  #ca937d 0%, #ca7d7d 100%);
+  background: -webkit-linear-gradient(top,  #ca937d 0%,#ca7d7d 100%);
+  background: linear-gradient(to bottom,  #ca937d 0%,#ca7d7d 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca937d', endColorstr='#ca7d7d',GradientType=0 );
+}
+.turn-button .always {
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  position: absolute;
+  background: #fff;
+  bottom: 5px;
+  right: 5px;
+  text-align: center;
+  line-height: 100%;
+}
+.turn-button .always i {
+  font-size: 40px;
+  line-height: 55px;
+}
+.turn-button .always.on {
+  color: #7dcac7;
+}
+.turn-button .always.off {
+  color: #ca7d7d;
+}
+.turn-button .icon {
+  width: 50px;
+  height: 50px;
+  background: url('../img/off-button-white.png') no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+}
+.next-draw {
+  margin-top: 44px;
+}
+.next-draw .date {
+  font-size: 25px;
+}
+.next-draw .status {
+  border-radius: 16px;
+  width: 95px;
+  height: 32px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 35px auto;
+  border: 3px solid #ccc;
+  color: #ccc;
+}
+.next-draw .status.on {
+  border: 3px solid #7dcac7;
+  color: #7dcac7;
+}
+.next-draw .status.off {
+  border: 3px solid #ca7d7d;
+  color: #ca7d7d;
+}
+footer {
+  font-size: 10px;
+  text-align: center;
+}
+
+/* modal */
+.confirmation .menu {
+  border: 0;
+  margin-bottom: 50px;
+}
+.confirmation .logo {
+  background: url('../img/logo-white.png') no-repeat;
+  background-size: contain;
+}
+.confirmation p {
+  color: #fff;
+}
+.confirmation .buttons {
+  margin-top: 100px;
+}
+.confirmation .button {
+  border-radius: 16px;
+  width: 65px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+}
+.confirmation .button.yes {
+  background: #fff;
+}
+.modalApprove {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #7dcaa4;
+  background: -moz-linear-gradient(top,  #7dcaa4 0%, #7dcac7 100%);
+  background: -webkit-linear-gradient(top,  #7dcaa4 0%,#7dcac7 100%);
+  background: linear-gradient(to bottom,  #7dcaa4 0%,#7dcac7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dcaa4', endColorstr='#7dcac7',GradientType=0 );
+}
+.modalApprove .button.yes {
+  color: #7dcaa4;
+}
+.modalDecline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ca937d;
+  background: -moz-linear-gradient(top,  #ca937d 0%, #ca7d7d 100%);
+  background: -webkit-linear-gradient(top,  #ca937d 0%,#ca7d7d 100%);
+  background: linear-gradient(to bottom,  #ca937d 0%,#ca7d7d 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca937d', endColorstr='#ca7d7d',GradientType=0 );
+}
+.modalDecline .button.yes {
+  color: #ca7d7d;
+}
+
+.login .logo {
+  width: 200px;
+  height: 108px;
+  background: url('../img/logo.png') no-repeat;
+  background-size: contain;
+  margin: 40px auto;
+}
+.login form {
+  margin-bottom: 50px;
+}
+.login input {
+  height: 30px;
+  line-height: 30px;
+  border: 0;
+  border-bottom: 1px solid #000;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  display: block;
+  width: 150px;
+
 }
