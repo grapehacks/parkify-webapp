@@ -1,5 +1,5 @@
 /* eslint-disable*/
-import axios from 'axios';
+import * as axios from 'axios';
 
 const subscriptionAPI = (baseURL) => {
     return {
