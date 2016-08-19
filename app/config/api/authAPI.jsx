@@ -4,11 +4,6 @@ import * as axios from 'axios';
 const authAPI = (baseURL) => {
     return {
         login: (credentials) => {
-            // return new Promise((resolve) => {
-            //     setTimeout(() => {
-            //         resolve({});
-            //     }, 200)
-            // });
             return axios.post(baseURL + '/authenticate', credentials).then(res => {
                 localStorage.setItem('token', res.data.token);
                 return res.data;
