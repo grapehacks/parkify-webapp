@@ -1,8 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router';
-/* eslint-disable */
-import styles from './Header.scss';
-/* eslint-enable */
 
 class Header extends React.Component {
     render() {
