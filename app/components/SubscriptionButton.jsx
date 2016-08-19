@@ -5,13 +5,13 @@ import styles from './SubscriptionButton.scss';
 
 class SubscriptionButton extends React.Component {
     render() {
-        const subscribeClass = this.props.subscribe ?  'on turn-button' : 'off turn-button';
-        const alwaysSubscribeClass = this.props.alwaysSubscribe ?  'on always' : 'off always';
-
+        const subscribeClass = this.props.subscribe ? 'on turn-button' : 'off turn-button';
+        const rememberLastChoice = this.props.subscribe ? 'on always' : 'off always';
+        const rememberLastChoiceClass = this.props.rememberLastChoice ? rememberLastChoice : rememberLastChoice + ' dn';
         return (
             <div onClick={() => {this.props.handleClick()}} className={subscribeClass}>
                 <div className="icon"></div>
-                <div className={alwaysSubscribeClass}>
+                <div className={rememberLastChoiceClass}>
                     <i className="fa fa-refresh fa-spin" aria-hidden="true"></i>
                 </div>
             </div>
@@ -22,7 +22,7 @@ class SubscriptionButton extends React.Component {
 SubscriptionButton.propTypes = {
     handleClick: React.PropTypes.func,
     subscribe: React.PropTypes.bool,
-    alwaysSubscribe: React.PropTypes.bool
+    rememberLastChoice: React.PropTypes.bool
 };
 
 export default SubscriptionButton;
