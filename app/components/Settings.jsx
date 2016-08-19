@@ -1,13 +1,13 @@
 import React from 'react';
 
-class Users extends React.Component {
+class Settings extends React.Component {
     render() {
         return (
             <div>
-                Users
+                Settings
             </div>
         )
     }
 }
 
-export default Users;
+export default Settings;
