@@ -11,18 +11,24 @@ const authAPI = (baseURL) => {
             // });
             return axios.post(baseURL + '/authenticate', credentials).then(res => {
                 localStorage.setItem('token', res.data.token);
+                localStorage.setItem('authenticated', 'true');
                 return res.data;
             });
         },
 
         logout: () => {
             localStorage.removeItem('token');
+            localStorage.removeItem('authenticated');
             return new Promise((resolve) => {
                 setTimeout(() => {
                     resolve();
-                }, 1000)
+                }, 100)
             });
             //return axios.post(baseURL + '/unsubscribe', {withCredentials: true});
+        },
+
+        ping: () => {
+
         }
     }
 };

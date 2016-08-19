@@ -1,4 +1,4 @@
-import {LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT} from '../actions/authActions.jsx'
+import {LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT} from '../actions/authActions.jsx'
 
 const initialState = {
     logged: false,
@@ -31,6 +31,14 @@ export default function authReducer(state = initialState, action = undefined) {
             return Object.assign({}, state, {
                 logging: false,
                 error: action.error
+            });
+        case LOGGED_OUT:
+            return Object.assign({}, state, {
+                logged: false,
+                logging: false,
+                error: '',
+                token: '',
+                user: {}
             });
         default:
             return state
