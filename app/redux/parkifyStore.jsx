@@ -8,4 +8,4 @@ let store = createStore(
     applyMiddleware(thunk.withExtraArgument(api))
 );
 
-module.exports = store;
+export default store;

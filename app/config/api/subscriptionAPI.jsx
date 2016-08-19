@@ -23,4 +23,4 @@ const subscriptionAPI = (baseURL) => {
     }
 };
 
-module.exports = subscriptionAPI;
+export default subscriptionAPI;

@@ -23,4 +23,4 @@ StatefulButton.propTypes = {
     processing: PropTypes.bool
 };
 
-module.exports = StatefulButton;
+export default StatefulButton;

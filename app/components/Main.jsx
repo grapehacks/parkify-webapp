@@ -33,4 +33,4 @@ Main.propTypes = {
     children: React.PropTypes.object
 };
 
-module.exports = Main;
+export default Main;

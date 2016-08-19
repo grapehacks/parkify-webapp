@@ -4,4 +4,4 @@ const API = {
     subscriptionAPI: subscriptionAPI(URL)
 };
 
-module.exports = API;
+export default API;

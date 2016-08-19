@@ -18,4 +18,4 @@ Header.propTypes = {
     children: React.PropTypes.object
 };
 
-module.exports = Header;
+export default Header;
