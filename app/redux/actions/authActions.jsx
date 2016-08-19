@@ -18,7 +18,7 @@ export function login(credentials) {
             hashHistory.push('/app');
             dispatch({type: LOGGED_IN, user: res.user, token: res.token});
         }, (res) => {
-            dispatch({type: LOGIN_FAILED, error: 'Failed to login. ' + res.message});
+            dispatch({type: LOGIN_FAILED, error: 'Failed to login. ' + res.response.data.message});
         });
     };
 }
