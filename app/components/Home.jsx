@@ -8,7 +8,7 @@ class Home extends React.Component {
         return (
             <div className="content">
                 <SubscriptionButton subscribe={true} alwaysSubscribe={true}/>
-                <NextDrawDate/>
+                <NextDrawDate date='28-13-2016'/>
                 <SubscriptionStatusLabel/>
             </div>
         )

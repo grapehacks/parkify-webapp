@@ -8,10 +8,14 @@ class NextDrawDate extends React.Component {
         return (
             <div className="next-draw">
                 <div className="">Next draw date</div>
-                <div className="date"><i className="fa fa-calendar-times-o" aria-hidden="true"></i> 23-08-2016</div>
+                <div className="date"><i className="fa fa-calendar-times-o" aria-hidden="true"></i> {this.props.date}</div>
             </div>
         )
     }
 }
+
+NextDrawDate.propTypes = {
+    date: React.PropTypes.string
+};
 
 export default NextDrawDate;
