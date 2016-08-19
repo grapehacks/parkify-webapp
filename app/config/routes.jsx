@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route, hashHistory, IndexRedirect} from 'react-router';
+import {Router, Route, hashHistory, IndexRedirect, Redirect} from 'react-router';
 import Main from './../components/Main.jsx';
 import Home from './../components/Home.jsx';
 import Settings from './../components/Settings.jsx';
@@ -27,6 +27,7 @@ let routes = (
             </Route>
             <Route path="/login" component={Login}/>
             <IndexRedirect to="/login"/>
+            <Redirect from="*" to='/app' />
         </Route>
     </Router>
 );
