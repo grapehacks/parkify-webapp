@@ -7,7 +7,7 @@ class ActionableMessages extends Component {
     render() {
         const messages = this.props.messages.map(m => {
             return (
-                <Message text={m.text} topic={m.topic} key={m._id} />
+                <Message text={m.text} topic={m.topic} key={m._id} type={m.type}/>
             );
         });
         return (
