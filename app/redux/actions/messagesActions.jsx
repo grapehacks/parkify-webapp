@@ -32,4 +32,3 @@ export function markAsRead(message) {
         });
     }
 }
-//add mark as read etc...

@@ -5,13 +5,13 @@ class ActionableMessages extends Component {
         this.props.handleMount();
     }
     render() {
-        const messages = this.props.messages.map(m => {
+        const messages = this.props.messages.length > 0 ? this.props.messages.map(m => {
             return (
                 <Message text={m.text} topic={m.topic} key={m._id} type={m.type} isRead={m.read} handleClick={() => {this.props.markAsRead(m)}}/>
             );
-        });
+        }) : (<p className="text-center" >No messages found...</p>);
         return (
-            <div>
+            <div style={{paddingTop: '40px'}}>
                 {messages}
             </div>
         );
