@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import SubscriptionButton from '../components/SubscriptionButton'
+import { subscribe, unsubscribe } from '../redux/actions/subscribeActions'
 
 const mapStateToProps = (state) => {
     return {
@@ -8,10 +9,15 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        handleClick: () => {
-            console.log(arguments);
+        handleClick: (register, remember) => {
+            if (register) {
+                dispatch(unsubscribe({rememberLastChoice: remember}));
+            } else {
+                dispatch(subscribe({rememberLastChoice: remember}));
+            }
+
         }
     }
 };

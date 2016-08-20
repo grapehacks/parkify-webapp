@@ -3,32 +3,16 @@ import * as axios from 'axios';
 
 const subscriptionAPI = (baseURL) => {
     return {
-        subscribe: () => {
-            // return new Promise((resolve) => {
-            //     setTimeout(() => {
-            //         resolve();
-            //     }, 1000)
-            // });
-            return axios
-                .post(baseURL + '/subscribe',
-                    {
-                        headers: {'x-access-token': localStorage.getItem('token')}
-                    }
-                );
+        subscribe: (params) => {
+            return axios.post(baseURL + '/api/participate/register', params, {
+                headers: {'x-access-token': localStorage.getItem('token')}
+            });
         },
 
-        unsubscribe: () => {
-            // return new Promise((resolve) => {
-            //     setTimeout(() => {
-            //         resolve();
-            //     }, 1000)
-            // });
-            return axios
-                .post(baseURL + '/unsubscribe',
-                    {
-                        headers: {'x-access-token': localStorage.getItem('token')}
-                    }
-                );
+        unsubscribe: (params) => {
+            return axios.post(baseURL + '/api/participate/unregister', params, {
+                headers: {'x-access-token': localStorage.getItem('token')}
+            });
         }
     }
 };
