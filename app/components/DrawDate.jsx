@@ -1,9 +1,9 @@
 import React from 'react';
 /* eslint-disable */
-import styles from './NextDrawDate.scss';
+import styles from './DrawDate.scss';
 /* eslint-enable */
 
-class NextDrawDate extends React.Component {
+class DrawDate extends React.Component {
     render() {
         return (
             <div className="next-draw">
@@ -14,8 +14,8 @@ class NextDrawDate extends React.Component {
     }
 }
 
-NextDrawDate.propTypes = {
+DrawDate.propTypes = {
     date: React.PropTypes.string
 };
 
-export default NextDrawDate;
+export default DrawDate;
