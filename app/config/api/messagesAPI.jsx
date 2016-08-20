@@ -18,22 +18,12 @@ const messagesAPI = (baseURL) => {
             // });
 
 
+
+
             return axios
                 .get(baseURL + '/api/messages?count=30', {
                     headers: {'x-access-token': localStorage.getItem('token')}
                 });
-            /*
-             text: String,
-             topic: String,
-             type: { type:Number, default: 4, min: 0, max: 6 },
-             read: Boolean,
-             date: Date
-
-             */
-            // return axios.post(baseURL + '/authenticate', credentials).then(res => {
-            //     localStorage.setItem('token', res.data.token);
-            //     return res.data;
-            // });
         },
     }
 };
