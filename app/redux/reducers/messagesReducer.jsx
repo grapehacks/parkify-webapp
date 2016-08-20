@@ -1,34 +1,41 @@
-import {LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT} from '../actions/messagesActions.jsx'
+import {GET_MESSAGES, GOT_MESSAGES, GET_MESSAGES_ERROR} from '../actions/messagesActions.jsx'
 
 const initialState = {
     messages: [],
+    gettingMessages: false,
+    error: ''
 };
 
 export default function messagesReducer(state = initialState, action = undefined) {
     switch (action.type) {
         //Markin_as_read, getting_messages etc
-        case LOGGING_IN:
+        case GET_MESSAGES:
             return Object.assign({}, state, {
-                logging: true,
+                gettingMessages: true,
                 error: '',
             });
-        case LOGGED_IN:
+        case GOT_MESSAGES:
             return Object.assign({}, state, {
-                user: action.user,
-                token: action.token,
-                logging: false
+                gettingMessages: false,
+                error: '',
+                messages: action.messages
             });
-        case LOGOUT:
+        case GET_MESSAGES_ERROR:
             return Object.assign({}, state, {
-                user: {},
-                token: '',
-                logged: false
+                gettingMessages: false,
+                error: '',
             });
-        case LOGIN_FAILED:
+/*        case MARK_AS_READ:
             return Object.assign({}, state, {
-                logging: false,
-                error: action.error
+                markingMessagesRead: true,
+                error: '',
             });
+        case MARKED_AS_READ:
+            return Object.assign({}, state, {
+                markingMessagesRead: false,
+                error: '',
+            });
+*/
         default:
             return state
     }
