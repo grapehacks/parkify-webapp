@@ -10,20 +10,21 @@ export const PROCESS = 'PROCESS';
  * action creators
  */
 
-export function subscribe() {
+export function subscribe(params) {
     return (dispatch, state, api) => {
         dispatch({type: PROCESS});
-        api.subscriptionAPI.subscribe().then(() => {
+        api.subscriptionAPI.subscribe(params).then(() => {
             dispatch({type: SUBSCRIBE});
         });
     };
 }
 
-export function unsubscribe() {
+export function unsubscribe(params) {
     return (dispatch, state, api) => {
         dispatch({type: PROCESS});
-        api.subscriptionAPI.unsubscribe().then(() => {
+        api.subscriptionAPI.unsubscribe(params).then(() => {
             dispatch({type: UNSUBSCRIBE});
         });
     };
 }
+
