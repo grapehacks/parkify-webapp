@@ -33,8 +33,8 @@ class SubscriptionButton extends React.Component {
                 <div className={rememberLastChoiceClass}>
                     <i className="fa fa-refresh fa-spin" aria-hidden="true"></i>
                 </div>
-                <ModalSubscribe visible={this.state.showSubscribeModal} onClose={() => {this.setState({showSubscribeModal:false})}} onConfirm={() => {this.props.handleClick()}}/>
-                <ModalUnsubscribe visible={this.state.showUnsubscribeModal} onClose={() => {this.setState({showUnsubscribeModal:false})}} onConfirm={() => {this.props.handleClick()}}/>
+                <ModalSubscribe visible={this.state.showSubscribeModal} onClose={() => {this.setState({showSubscribeModal:false})}} onConfirm={(remember) => {this.props.handleClick(true, remember)}}/>
+                <ModalUnsubscribe visible={this.state.showUnsubscribeModal} onClose={() => {this.setState({showUnsubscribeModal:false})}} onConfirm={(remember) => {this.props.handleClick(false, remember)}}/>
             </div>
         )
     }

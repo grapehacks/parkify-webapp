@@ -19,7 +19,6 @@ export function login(credentials) {
         api.authAPI.login(credentials).then((res) => {
             hashHistory.push('/app');
             dispatch({type: LOGGED_IN, user: res.user, token: res.token});
-            console.log('try ping');
             ping()(dispatch, state, api);
         }, (res) => {
             const error = res && res.response && res.response.data ? res.response.data.message : '';
@@ -34,7 +33,7 @@ export function logout() {
             dispatch({type: LOGGED_OUT});
             hashHistory.push('/login');
         }, (res) => {
-            console.log(res);
+
         });
     }
 }
@@ -47,12 +46,10 @@ export function ping() {
         }
 
         api.authAPI.ping().then((res) => {
-            console.log(res);
             dispatch({type: PING, user: res.user, date: res.date});
         });
         interval = setInterval(() => {
             api.authAPI.ping().then((res) => {
-                console.log(res);
                 dispatch({type: PING, user: res.user, date: res.date});
             });
         }, 30 * 1000);

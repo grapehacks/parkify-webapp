@@ -23,7 +23,6 @@ const authAPI = (baseURL) => {
         },
 
         ping: () => {
-            console.log('here');
             return axios.get(baseURL + '/ping', {headers: {'x-access-token': localStorage.getItem('token')}})
                 .then(res => res.data);
         }

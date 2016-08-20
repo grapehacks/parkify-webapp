@@ -43,7 +43,6 @@ export default function authReducer(state = initialState, action = undefined) {
             });
         case PING:
             if (action.user) {
-            console.log(action);
                 return Object.assign({}, state, {
                     logged: true,
                     error: '',
@@ -51,6 +50,8 @@ export default function authReducer(state = initialState, action = undefined) {
                     user: action.user
                 });
             } else {
+                localStorage.removeItem('authenticated');
+                localStorage.removeItem('token');
                 return Object.assign({}, state, {
                     logged: false,
                     user: {}

@@ -12,13 +12,13 @@ class Header extends React.Component {
                         <div className="logo pull-left"></div>
                     </Link>
                     <div className="icons pull-right">
-                        <LogoutButton/>
-                        <Link to='/app/settings' activeClassName='active'>
-                            <i className="fa fa-cog" aria-hidden="true"></i>
-                        </Link>
+                        {/*<Link to='/app/settings' activeClassName='active'>*/}
+                            {/*<i className="fa fa-cog" aria-hidden="true"></i>*/}
+                        {/*</Link>*/}
                         <Link to='/app/messages' activeClassName='active'>
                             <MessagesBadgedIcon />
                         </Link>
+                        <LogoutButton/>
                     </div>
                 </div>
             </div>
