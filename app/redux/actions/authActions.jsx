@@ -30,6 +30,7 @@ export function login(credentials) {
 export function logout() {
     return (dispatch, state, api) => {
         api.authAPI.logout().then(() => {
+            clearInterval(interval);
             dispatch({type: LOGGED_OUT});
             hashHistory.push('/login');
         }, (res) => {
