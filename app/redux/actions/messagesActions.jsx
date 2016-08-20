@@ -4,6 +4,7 @@
 export const GET_MESSAGES = 'GET_MESSAGES';
 export const GOT_MESSAGES = 'GOT_MESSAGES';
 export const GET_MESSAGES_ERROR = 'GET_MESSAGES_ERROR';
+export const MARKED_AS_READ = 'MARKED_AS_READ';
 
 /*
  * action creators
@@ -21,4 +22,14 @@ export function getMessages() {
     };
 }
 
+export function markAsRead(message) {
+    return (dispatch, state, api) => {
+        api.messagesAPI.markAsRead(message._id).then((res) => {
+            console.log(res);
+            dispatch({type: MARKED_AS_READ, message: res.data});
+        }, (res) => {
+            console.log(res);
+        });
+    }
+}
 //add mark as read etc...

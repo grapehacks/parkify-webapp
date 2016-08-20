@@ -1,11 +1,11 @@
-import {GET_MESSAGES, GOT_MESSAGES, GET_MESSAGES_ERROR} from '../actions/messagesActions.jsx'
+import {GET_MESSAGES, GOT_MESSAGES, GET_MESSAGES_ERROR, MARKED_AS_READ} from '../actions/messagesActions.jsx'
 
 const initialState = {
     messages: [],
     gettingMessages: false,
     error: ''
 };
-
+/*eslint-disable*/
 export default function messagesReducer(state = initialState, action = undefined) {
     switch (action.type) {
         //Markin_as_read, getting_messages etc
@@ -25,17 +25,15 @@ export default function messagesReducer(state = initialState, action = undefined
                 gettingMessages: false,
                 error: '',
             });
-/*        case MARK_AS_READ:
-            return Object.assign({}, state, {
-                markingMessagesRead: true,
-                error: '',
-            });
         case MARKED_AS_READ:
+            let index = state.messages.indexOf(state.messages.filter(m => m._id === action.message._id)[0]);
+            let messages = state.messages.slice(0, index);
+            messages.push(action.message);
+            messages = messages.concat(state.messages.slice(index + 1));
+
             return Object.assign({}, state, {
-                markingMessagesRead: false,
-                error: '',
+                messages
             });
-*/
         default:
             return state
     }

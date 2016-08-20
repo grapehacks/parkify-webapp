@@ -7,7 +7,7 @@ class ActionableMessages extends Component {
     render() {
         const messages = this.props.messages.map(m => {
             return (
-                <Message text={m.text} topic={m.topic} key={m._id} type={m.type}/>
+                <Message text={m.text} topic={m.topic} key={m._id} type={m.type} isRead={m.read} handleClick={() => {this.props.markAsRead(m)}}/>
             );
         });
         return (
@@ -19,6 +19,7 @@ class ActionableMessages extends Component {
 }
 
 ActionableMessages.propTypes = {
+    markAsRead: PropTypes.func,
     messages: PropTypes.array,
     handleMount: PropTypes.func
 };

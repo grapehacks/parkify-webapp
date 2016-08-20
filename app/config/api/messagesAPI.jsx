@@ -25,6 +25,12 @@ const messagesAPI = (baseURL) => {
                     headers: {'x-access-token': localStorage.getItem('token')}
                 });
         },
+        markAsRead: (id) => {
+            return axios
+                .post(baseURL + `/api/messages/${id}/read`, null, {
+                    headers: {'x-access-token': localStorage.getItem('token')}
+                });
+        }
     }
 };
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ActionableMessages from '../components/ActionableMessages.jsx'
-import {getMessages} from '../redux/actions/messagesActions'
+import {getMessages, markAsRead} from '../redux/actions/messagesActions'
 
 const mapStateToProps = (state) => {
     return {
@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleMount: () => {
             dispatch(getMessages());
+        },
+        markAsRead: (message) => {
+            dispatch(markAsRead(message));
         }
     }
 };

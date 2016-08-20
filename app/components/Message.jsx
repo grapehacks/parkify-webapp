@@ -8,10 +8,11 @@ class Message extends React.Component {
 
         const topic = this.props.topic;
         const text = this.props.text;
-        const typeClass = 'messageType' + this.props.type;
+        const isReadClass = this.props.isRead ? 'read' : 'unread';
+        const typeClass = 'gp-message messageType' + this.props.type + ' ' + isReadClass;
 
         return (
-            <div className={typeClass}>
+            <div className={typeClass} onClick={() => {this.props.handleClick()}}>
                 <div className="messageTopic">
                     {topic}
                 </div>
@@ -24,9 +25,11 @@ class Message extends React.Component {
 }
 
 Message.propTypes = {
+    handleClick: React.PropTypes.func,
     topic: React.PropTypes.string,
     text: React.PropTypes.string,
     type: React.PropTypes.number,
+    isRead: React.PropTypes.bool
 };
 
 export default Message;
