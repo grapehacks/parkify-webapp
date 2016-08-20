@@ -6,8 +6,8 @@ import style from './LoginForm.scss';
 class LoginForm extends Component {
     componentDidMount() {
         this.state = {
-            username: '',
-            password: ''
+            email: 'email@test.com',
+            password: 'test_pass'
         };
         this.props.handleLoaded();
     }
@@ -37,10 +37,10 @@ class LoginForm extends Component {
                 }
             }}>
                 <div className="row gp-input">
-                    <input type="text" placeholder="E-mail" onKeyUp={this.handleMailChange.bind(this)}/>
+                    <input type="text" placeholder="E-mail" onKeyUp={this.handleMailChange.bind(this)} defaultValue="email@test.com"/>
                 </div>
                 <div className="row gp-input">
-                    <input type="password" placeholder="Password" onKeyUp={this.handlePasswordChange.bind(this)}/>
+                    <input type="password" placeholder="Password" onKeyUp={this.handlePasswordChange.bind(this)} defaultValue="test_pass"/>
                 </div>
                 <div className="row text-center">
                     {error}

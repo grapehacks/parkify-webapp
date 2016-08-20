@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import BadgedIcon from '../components/BadgedIcon.jsx'
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
     return {
-        counter: 6
+        counter: state.auth.user ? state.auth.user.unreadMsgCounter : 0
     }
 };
 

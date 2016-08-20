@@ -10,11 +10,9 @@ const subscriptionAPI = (baseURL) => {
             //     }, 1000)
             // });
             return axios
-                .post(baseURL + '/subscribe',
-                    {
-                        headers: {'x-access-token': localStorage.getItem('token')}
-                    }
-                );
+                .post(baseURL + '/subscribe', {
+                    headers: {'x-access-token': localStorage.getItem('token')}
+                });
         },
 
         unsubscribe: () => {
@@ -24,11 +22,9 @@ const subscriptionAPI = (baseURL) => {
             //     }, 1000)
             // });
             return axios
-                .post(baseURL + '/unsubscribe',
-                    {
-                        headers: {'x-access-token': localStorage.getItem('token')}
-                    }
-                );
+                .post(baseURL + '/unsubscribe', {
+                    headers: {'x-access-token': localStorage.getItem('token')}
+                });
         }
     }
 };

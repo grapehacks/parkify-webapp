@@ -1,10 +1,11 @@
-import {LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT} from '../actions/authActions.jsx'
+import {LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT, PING} from '../actions/authActions.jsx'
 
 const initialState = {
     logged: false,
     logging: false,
     error: '',
     token: '',
+    date: '',
     user: {}
 };
 
@@ -40,8 +41,23 @@ export default function authReducer(state = initialState, action = undefined) {
                 token: '',
                 user: {}
             });
+        case PING:
+            if (action.user) {
+            console.log(action);
+                return Object.assign({}, state, {
+                    logged: true,
+                    error: '',
+                    date: action.date,
+                    user: action.user
+                });
+            } else {
+                return Object.assign({}, state, {
+                    logged: false,
+                    user: {}
+                });
+            }
         default:
-            return state
+            return state;
     }
 }
 
