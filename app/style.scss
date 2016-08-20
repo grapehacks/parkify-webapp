@@ -30,6 +30,8 @@ body{
   background-size: contain;
 }
 .icons i {
+  transition: all 0.4s;
+  color: #333;
   width: 50px;
   height: 50px;
   display: block;
@@ -38,6 +40,9 @@ body{
   line-height: 50px;
   font-size: 25px;
   position: relative;
+  &:hover{
+    color:#555;
+  }
 }
 .icons i .notification {
   width: 15px;

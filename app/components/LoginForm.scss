@@ -1,10 +1,12 @@
 .login {
   input {
+    transition: all 0.4s;
     font-size: 1.5em;
     font-weight: 300;
     border-bottom: solid 1px #ddd;
     &:focus {
       outline: 0;
+      border-bottom: solid 1px #64B1AE;
     }
   }
   .gp-input {
@@ -23,12 +25,11 @@
       background: #64B1AE;
       border: 0;
     }
-    &:active {
-      &:focus {
-        background: #64B1AE;
-        border: 0;
-        outline: 0;
-      }
+    &:active, &:focus {
+      background: #64B1AE;
+      border: 0;
+      outline: 0;
     }
+
   }
 }
