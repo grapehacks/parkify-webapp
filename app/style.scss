@@ -101,6 +101,18 @@ footer {
   color: #fff;
   display: block;
 }
+.confirmation .button {
+  border: 2px solid #fff;
+}
+.confirmation .button:hover {
+  background-color: #fff;
+}
+.confirmation.modalDecline .button:hover {
+  color: #ca7d7d;
+}
+.confirmation.modalApprove .button:hover {
+  color: #7dcaa4;
+}
 .confirmation .button.yes {
   background: #fff;
 }
