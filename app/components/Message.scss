@@ -1,0 +1,22 @@
+.messagesContainer .messageTopic {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 5px;
+  font-weight: bold;
+}
+.messagesContainer .messageText {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 5px;
+  margin-bottom: 1px;
+}
+
+.messageType0, .messageType1 {
+background-color: #FFD6CC;
+}
+.messageType2, .messageType3  {
+  background-color: #E7F4D3;
+}
+.messageType4, .messageType5  {
+  background-color: #D5DEE6;
+}
