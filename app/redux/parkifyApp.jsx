@@ -4,7 +4,7 @@ import authReducer from './reducers/authReducer.jsx'
 import messagesReducer from './reducers/messagesReducer.jsx'
 
 const parkifyApp = combineReducers({
-    subscribeState: subscribeReducer,
+    subscribe: subscribeReducer,
     auth: authReducer,
     messages: messagesReducer
 });

@@ -10,7 +10,7 @@ class ModalSubscribe extends React.Component {
 
     handleRememberMyDecision(e) {
         this.setState({
-            remember: e.target.value
+            remember: e.target.checked
         });
     }
 

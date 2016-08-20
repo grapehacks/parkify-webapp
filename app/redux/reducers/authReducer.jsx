@@ -1,4 +1,5 @@
 import {LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT, PING} from '../actions/authActions.jsx'
+import {SUBSCRIBE, UNSUBSCRIBE} from '../actions/subscribeActions'
 
 const initialState = {
     logged: false,
@@ -57,6 +58,11 @@ export default function authReducer(state = initialState, action = undefined) {
                     user: {}
                 });
             }
+        case SUBSCRIBE:
+        case UNSUBSCRIBE:
+            return Object.assign({}, state, {
+                user: action.user
+            });
         default:
             return state;
     }

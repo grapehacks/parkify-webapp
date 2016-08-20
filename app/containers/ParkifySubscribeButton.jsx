@@ -5,7 +5,8 @@ import { subscribe, unsubscribe } from '../redux/actions/subscribeActions'
 const mapStateToProps = (state) => {
     return {
         subscribe: state.auth.user.participate === 1,
-        rememberLastChoice: state.auth.user.rememberLastChoice
+        rememberLastChoice: state.auth.user.rememberLastChoice,
+        processing: state.subscribe.processing
     }
 };
 
@@ -13,11 +14,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleClick: (register, remember) => {
             if (register) {
-                dispatch(unsubscribe({rememberLastChoice: remember}));
-            } else {
                 dispatch(subscribe({rememberLastChoice: remember}));
+            } else {
+                dispatch(unsubscribe({rememberLastChoice: remember}));
             }
-
         }
     }
 };

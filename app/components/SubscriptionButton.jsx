@@ -6,7 +6,7 @@ import styles from './SubscriptionButton.scss';
 /* eslint-enable */
 
 class SubscriptionButton extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -15,12 +15,16 @@ class SubscriptionButton extends React.Component {
         }
     }
 
-    handleClick(){
-        if (this.props.subscribe) {
-            this.setState({showUnsubscribeModal:true})
-        } else {
-            this.setState({showSubscribeModal:true})
+    handleClick() {
+        if (this.props.processing) {
+            return;
         }
+        if (this.props.subscribe) {
+            this.setState({showUnsubscribeModal: true})
+        } else {
+            this.setState({showSubscribeModal: true})
+        }
+
     }
 
     render() {
@@ -28,13 +32,25 @@ class SubscriptionButton extends React.Component {
         const rememberLastChoice = this.props.subscribe ? 'on always' : 'off always';
         const rememberLastChoiceClass = this.props.rememberLastChoice ? rememberLastChoice : rememberLastChoice + ' dn';
         return (
-            <div onClick={() => {this.handleClick()}} className={subscribeClass}>
+            <div onClick={() => {
+                this.handleClick()
+            }} className={subscribeClass}>
                 <div className="icon"></div>
                 <div className={rememberLastChoiceClass}>
                     <i className="fa fa-refresh fa-spin" aria-hidden="true"></i>
                 </div>
-                <ModalSubscribe visible={this.state.showSubscribeModal} onClose={() => {this.setState({showSubscribeModal:false})}} onConfirm={(remember) => {this.props.handleClick(true, remember)}}/>
-                <ModalUnsubscribe visible={this.state.showUnsubscribeModal} onClose={() => {this.setState({showUnsubscribeModal:false})}} onConfirm={(remember) => {this.props.handleClick(false, remember)}}/>
+                <ModalSubscribe visible={this.state.showSubscribeModal} onClose={() => {
+                    this.setState({showSubscribeModal: false})
+                }} onConfirm={(remember) => {
+                    this.props.handleClick(true, remember);
+                    this.setState({showSubscribeModal: false})
+                }}/>
+                <ModalUnsubscribe visible={this.state.showUnsubscribeModal} onClose={() => {
+                    this.setState({showUnsubscribeModal: false})
+                }} onConfirm={(remember) => {
+                    this.props.handleClick(false, remember);
+                    this.setState({showUnsubscribeModal: false})
+                }}/>
             </div>
         )
     }
@@ -43,7 +59,8 @@ class SubscriptionButton extends React.Component {
 SubscriptionButton.propTypes = {
     handleClick: React.PropTypes.func,
     subscribe: React.PropTypes.bool,
-    rememberLastChoice: React.PropTypes.bool
+    rememberLastChoice: React.PropTypes.bool,
+    processing: React.PropTypes.bool
 };
 
 export default SubscriptionButton;

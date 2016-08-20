@@ -13,8 +13,8 @@ export const PROCESS = 'PROCESS';
 export function subscribe(params) {
     return (dispatch, state, api) => {
         dispatch({type: PROCESS});
-        api.subscriptionAPI.subscribe(params).then(() => {
-            dispatch({type: SUBSCRIBE});
+        api.subscriptionAPI.subscribe(params).then((res) => {
+            dispatch({type: SUBSCRIBE, user: res});
         });
     };
 }
@@ -22,8 +22,8 @@ export function subscribe(params) {
 export function unsubscribe(params) {
     return (dispatch, state, api) => {
         dispatch({type: PROCESS});
-        api.subscriptionAPI.unsubscribe(params).then(() => {
-            dispatch({type: UNSUBSCRIBE});
+        api.subscriptionAPI.unsubscribe(params).then((res) => {
+            dispatch({type: UNSUBSCRIBE, user: res});
         });
     };
 }
