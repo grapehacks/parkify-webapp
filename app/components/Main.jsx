@@ -4,6 +4,10 @@ import Header from './Header';
 import Footer from './Footer';
 
 class Main extends React.Component {
+    componentDidMount() {
+        this.props.handleMount();
+    }
+
     render() {
         return (
             <div className="gp-main container">
@@ -42,7 +46,8 @@ class Main extends React.Component {
 }
 
 Main.propTypes = {
-    children: React.PropTypes.object
+    children: React.PropTypes.object,
+    handleMount: React.PropTypes.func
 };
 
 export default Main;
