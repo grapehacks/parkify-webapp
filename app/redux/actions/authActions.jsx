@@ -4,6 +4,7 @@
 import {hashHistory} from 'react-router';
 export const LOGGING_IN = 'LOGGING_IN';
 export const LOGGED_IN = 'LOGGED_IN';
+export const LOGGED_OUT = 'LOGGED_OUT';
 export const LOGOUT = 'LOGOUT';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
 
@@ -22,4 +23,16 @@ export function login(credentials) {
             dispatch({type: LOGIN_FAILED, error: 'Failed to login. ' + error});
         });
     };
+}
+
+export function logout() {
+    return (dispatch, state, api) => {
+        api.authAPI.logout().then((res) => {
+            console.log(res);
+            dispatch({type: LOGGED_OUT});
+            hashHistory.push('/login');
+        }, (res) => {
+            console.log(res);
+        });
+    }
 }
