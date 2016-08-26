@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import ActionableMessages from '../components/ActionableMessages.jsx'
 import {getMessages, markAsRead} from '../redux/actions/messagesActions'
+import {ping} from '../redux/actions/authActions'
 
 const mapStateToProps = (state) => {
     return {
@@ -15,6 +16,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         markAsRead: (message) => {
             dispatch(markAsRead(message));
+            setTimeout(() => {
+                dispatch(ping(true));
+            }, 200);
         }
     }
 };

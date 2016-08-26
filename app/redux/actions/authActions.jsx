@@ -40,19 +40,21 @@ export function logout() {
 }
 
 let interval;
-export function ping() {
+export function ping(force) {
     return (dispatch, state, api) => {
-        if (interval) {
+        if (!force && interval) {
             return;
         }
 
         api.authAPI.ping().then((res) => {
             dispatch({type: PING, user: res.user, date: res.date});
         });
-        interval = setInterval(() => {
-            api.authAPI.ping().then((res) => {
-                dispatch({type: PING, user: res.user, date: res.date});
-            });
-        }, 30 * 1000);
+        if (!force) {
+            interval = setInterval(() => {
+                api.authAPI.ping().then((res) => {
+                    dispatch({type: PING, user: res.user, date: res.date});
+                });
+            }, 30 * 1000);
+        }
     }
 }
