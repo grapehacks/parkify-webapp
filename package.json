@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
     "dev": "webpack --progress --colors --watch",
-    "prod": "webpack -p"
+    "prod": "webpack -p --define process.env.NODE_ENV='production'"
   },
   "author": "Grape Up",
   "license": "MIT",
