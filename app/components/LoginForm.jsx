@@ -37,10 +37,10 @@ class LoginForm extends Component {
                 }
             }}>
                 <div className="row gp-input">
-                    <input type="text" placeholder="E-mail" onKeyUp={this.handleMailChange.bind(this)}/>
+                    <input type="text" placeholder="E-mail" onKeyUp={this.handleMailChange.bind(this)} onBlur={this.handleMailChange.bind(this)} onChange={this.handleMailChange.bind(this)}/>
                 </div>
                 <div className="row gp-input">
-                    <input type="password" placeholder="Password" onKeyUp={this.handlePasswordChange.bind(this)}/>
+                    <input type="password" placeholder="Password" onKeyUp={this.handlePasswordChange.bind(this)} onBlur={this.handlePasswordChange.bind(this)} onChange={this.handlePasswordChange.bind(this)}/>
                 </div>
                 <div className="row text-center">
                     {error}
