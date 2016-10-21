@@ -3,8 +3,10 @@ import DrawDate from '../components/DrawDate.jsx'
 
 const mapStateToProps = (state) => {
     let date = state.auth.date ? new Date(state.auth.date).toLocaleDateString() : 'Unknown';
+    let time = state.auth.date ? new Date(state.auth.date).toLocaleTimeString() : '-';
     return {
-        date: date
+        date: date,
+        time: time
     }
 };
 

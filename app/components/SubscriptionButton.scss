@@ -49,3 +49,9 @@
   left: calc(50% - 25px);
   top: calc(50% - 25px);
 }
+.turn-button {
+  cursor: pointer;
+  & > .confirmation {
+    cursor: auto;
+  }
+}
