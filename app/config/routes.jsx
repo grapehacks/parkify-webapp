@@ -34,7 +34,7 @@ let routes = (
                 <Route path='/app/settings' component={Settings} onEnter={requireAuth}/>
                 <Route path='/app/messages' component={Messages} onEnter={requireAuth}/>
             </Route>
-            <Route path="/login" component={PLogin} onEnter={checkIfLogged}/>
+            <Route path="/login" component={Login} onEnter={checkIfLogged}/>
             <IndexRedirect to='/login' />
             <Redirect from="*" to='/app' />
         </Route>

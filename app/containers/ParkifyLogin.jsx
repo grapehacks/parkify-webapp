@@ -14,9 +14,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleSubmit: (credentials) => {
             dispatch(login(credentials));
-        },
-        handleLoaded: () => {
-
         }
     }
 };
