@@ -16,6 +16,15 @@ function requireAuth(nextState, replace) {
     }
 }
 
+function checkIfLogged(nextState, replace) {
+    if (localStorage.getItem('authenticated') === 'true') {
+        replace({
+            pathname: '/app',
+            state: { nextPathname: nextState.location.pathname }
+        });
+    }
+}
+
 let routes = (
     <Router history={hashHistory}>
         <Route path="/">
@@ -25,8 +34,8 @@ let routes = (
                 <Route path='/app/settings' component={Settings} onEnter={requireAuth}/>
                 <Route path='/app/messages' component={Messages} onEnter={requireAuth}/>
             </Route>
-            <Route path="/login" component={Login}/>
-            <IndexRedirect to="/login"/>
+            <Route path="/login" component={PLogin} onEnter={checkIfLogged}/>
+            <IndexRedirect to='/login' />
             <Redirect from="*" to='/app' />
         </Route>
     </Router>
