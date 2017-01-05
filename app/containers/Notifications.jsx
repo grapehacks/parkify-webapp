@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
-import ActionableMessages from '../components/ActionableMessages.jsx'
+import MessagesList from '../components/MessagesList.jsx'
 import {getMessages, markAsRead} from '../redux/actions/messagesActions'
 import {ping} from '../redux/actions/authActions'
 
 const mapStateToProps = (state) => {
     return {
+        loading: state.messages.gettingMessages,
         messages: state.messages.messages
     }
 };
@@ -26,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
 const Notifications = connect(
     mapStateToProps,
     mapDispatchToProps
-)(ActionableMessages);
+)(MessagesList);
 
 
 export default Notifications;

@@ -2,9 +2,14 @@ import React from 'react';
 import {Link} from 'react-router';
 import MessagesBadgedIcon from './../containers/MessagesBadgedIcon';
 import LogoutButton from './../containers/LogoutButton';
+/*eslint-disable*/
+import style from './Header.scss';
+/*eslint-enable*/
 
 class Header extends React.Component {
     render() {
+        let name = this.props.user.name ? this.props.user.name.split(' ')[1] : 'user';
+        // TODO find out what is going on with undefined string
         return (
             <div className='gp-header'>
                 <div className="menu">
@@ -20,6 +25,7 @@ class Header extends React.Component {
                         </Link>
                         <LogoutButton/>
                     </div>
+                    <span className="fname pull-right">Hi {name}!</span>
                 </div>
             </div>
         )
@@ -27,6 +33,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
+    user: React.PropTypes.object,
     children: React.PropTypes.object
 };
 

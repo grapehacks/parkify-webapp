@@ -2,9 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import ParkifyLogin from '../containers/ParkifyLogin';
 
 class Login extends Component {
-    componentDidMount(){
-
-    }
     render() {
         return (
             <div className="container">

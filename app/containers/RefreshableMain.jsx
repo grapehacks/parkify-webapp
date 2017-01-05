@@ -2,9 +2,9 @@ import Main from './../components/Main';
 import {ping} from './../redux/actions/authActions';
 import { connect } from 'react-redux'
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
     return {
-
+        user: state.auth.user
     };
 };
 
