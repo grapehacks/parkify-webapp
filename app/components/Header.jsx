@@ -9,7 +9,6 @@ import style from './Header.scss';
 class Header extends React.Component {
     render() {
         let name = this.props.user.name ? this.props.user.name.split(' ')[1] : 'user';
-        // TODO find out what is going on with undefined string
         return (
             <div className='gp-header'>
                 <div className="menu">
