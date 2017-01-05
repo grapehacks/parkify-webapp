@@ -5,38 +5,20 @@ import style from './MessagesList.scss';
 /*eslint-enable*/
 
 class MessagesList extends Component {
-    constructor() {
-        super();
-        this.state = {
-            messages: []
-        }
-    }
 
     componentDidMount() {
         this.props.handleMount();
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.state.messages !== nextProps.messages) {
-            this.setMessages(nextProps);
-        }
-    }
-
-    setMessages(props) {
-        const messages = props.messages.length > 0 ? props.messages.map(m => {
+    render() {
+        const messages = this.props.messages.length > 0 ? this.props.messages.map(m => {
             return (
                 <Message {...m} key={m._id} handleClick={() => {this.props.markAsRead(m)}} />
             );
         }) : (<p className="text-center" >No messages found...</p>);
-        this.setState({
-            messages
-        });
-    }
-
-    render() {
         return (
             <div className="messages">
-                {this.props.loading ? (<p className="text-center" >Loading...</p>) : this.state.messages}
+                {this.props.loading ? (<p className="text-center" >Loading...</p>) : messages}
             </div>
         );
     }
