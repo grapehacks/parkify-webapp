@@ -4,6 +4,8 @@ import style from './MessageItem.scss';
 /*eslint-enable*/
 
 class Message extends React.Component {
+
+
     mapTypeToClass(type) {
         switch (type) {
             case 1: return 'panel-danger';

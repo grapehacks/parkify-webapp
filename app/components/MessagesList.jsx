@@ -17,7 +17,7 @@ class MessagesList extends Component {
             );
         }) : (<p className="text-center" >No messages found...</p>);
         return (
-            <div className="messages">
+            <div className={`messages${this.props.markingRead ? ' marking' : ''}`}>
                 {this.props.loading ? (<p className="text-center" >Loading...</p>) : messages}
             </div>
         );
@@ -25,6 +25,7 @@ class MessagesList extends Component {
 }
 
 MessagesList.propTypes = {
+    markingRead: PropTypes.bool,
     loading: PropTypes.bool,
     markAsRead: PropTypes.func,
     messages: PropTypes.array,

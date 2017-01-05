@@ -5,6 +5,7 @@ import {ping} from '../redux/actions/authActions'
 
 const mapStateToProps = (state) => {
     return {
+        markingRead: state.messages.markingRead,
         loading: state.messages.gettingMessages,
         messages: state.messages.messages
     }

@@ -1,3 +1,6 @@
 .messages {
   padding-top: 40px;
+  &.marking {
+    opacity: 0.6;
+  }
 }
