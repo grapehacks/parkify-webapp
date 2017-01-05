@@ -21,7 +21,9 @@ class Message extends React.Component {
 
         return (
             <div className={typeClass} onClick={() => {this.props.handleClick()}}>
-                <div className="panel-heading">{topic}</div>
+                <div className="panel-heading">
+                    {topic}
+                </div>
                 <div className="panel-body">
                     {text}
                 </div>

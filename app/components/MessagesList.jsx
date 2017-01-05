@@ -25,7 +25,7 @@ class MessagesList extends Component {
     setMessages(props) {
         const messages = props.messages.length > 0 ? props.messages.map(m => {
             return (
-                <Message {...m} key={m._id} handleClick={() => {this.props.markAsRead(m)}} date={m.date}/>
+                <Message {...m} key={m._id} handleClick={() => {this.props.markAsRead(m)}} />
             );
         }) : (<p className="text-center" >No messages found...</p>);
         this.setState({
@@ -36,7 +36,7 @@ class MessagesList extends Component {
     render() {
         return (
             <div className="messages">
-                {this.props.loading ? 'Loading...' : this.state.messages}
+                {this.props.loading ? (<p className="text-center" >Loading...</p>) : this.state.messages}
             </div>
         );
     }
