@@ -1,0 +1,53 @@
+/* eslint-disable */
+import styles from './AvatarMenu.scss';
+import React, {PropTypes} from 'react';
+import {Link} from 'react-router';
+
+const AvatarMenu = (props) => {
+    return (
+        <div>
+            <button className="avatar-button"
+                    onClick={props.toggleMenu}>
+                {props.counter > 0 && renderBadge(props)}
+                <div className="avatar-button__image-container">
+                    <img className="avatar-img"
+                         src="/img/no_user_photo.svg"
+                         alt="profile image"/>
+                </div>
+            </button>
+            {props.isOpened && renderMenu(props)}
+
+        </div>
+    );
+
+    function renderMenu(props) {
+        return (
+            <div className="avatar-menu">
+                <div className="avatar-menu__inner">
+                    <ul>
+                        <li><Link to='/app/messages' activeClassName='active'>Messages</Link></li>
+                        <li className="separator"></li>
+                        <li><a onClick={props.onLogoutClicked}>Logout</a></li>
+                    </ul>
+                </div>
+                <div className="avatar-menu__arrow">
+                </div>
+            </div>
+        );
+    }
+
+    function renderBadge(props) {
+        return(
+            <div className="avatar-messages-badge">{props.counter}</div>
+        );
+    }
+};
+
+AvatarMenu.propTypes = {
+    counter: PropTypes.number.isRequired,
+    isOpened: PropTypes.bool.isRequired,
+    toggleMenu: PropTypes.func.isRequired,
+    onLogoutClicked: PropTypes.func.isRequired
+};
+
+export default AvatarMenu;

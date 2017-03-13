@@ -37,6 +37,7 @@ var config = {
                 loaders: [
                     "style",
                     "css",
+                    "autoprefixer",
                     "sass"
                 ]
             }

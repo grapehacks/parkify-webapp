@@ -172,3 +172,14 @@ footer {
 .checkbox {
   color: #fff;
 }
+
+.flex-container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  
+  p {
+    margin: 15px;
+    font-size: 1.2em;
+  }
+}
