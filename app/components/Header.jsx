@@ -46,9 +46,15 @@ class Header extends React.Component {
 
     renderModalDialog() {
         return (
-            <div className="">
-                <div className="container">
-                    TODO TODO TODO
+            <div className="modal">
+                <div className="modal__container">
+                    <div className="modal__container__header">
+                        <span>Do you really want to logout?</span>
+                    </div>
+                    <div className="modal__container__body">
+                        <button onClick={this.onLogout}>Ok</button>
+                        <button onClick={this.onCancel}>Cancel</button>
+                    </div>
                 </div>
             </div>
         );
