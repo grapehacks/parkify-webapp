@@ -1,7 +1,9 @@
 import React, {PropTypes} from 'react';
+import ReactDom from 'react-dom';
 import {connect} from 'react-redux'
 import {Link} from 'react-router';
 import AvatarMenu from './AvatarMenu';
+import LogoutModal from './LogoutModal';
 import {logout} from '../redux/actions/authActions';
 
 class Header extends React.Component {
@@ -35,29 +37,33 @@ class Header extends React.Component {
 
     onLogout(event) {
         event.preventDefault();
+        this.removeModal();
         this.setState({isLogoutClicked: false});
         this.props.handleLogoutClick();
     }
 
     onCancel(event) {
         event.preventDefault();
+        this.removeModal();
         this.setState({isLogoutClicked: false});
     }
 
-    renderModalDialog() {
-        return (
-            <div className="modal">
-                <div className="modal__container">
-                    <div className="modal__container__header">
-                        <span>Do you really want to logout?</span>
-                    </div>
-                    <div className="modal__container__body">
-                        <button onClick={this.onLogout}>Ok</button>
-                        <button onClick={this.onCancel}>Cancel</button>
-                    </div>
-                </div>
-            </div>
-        );
+    renderModal() {
+        let container = document.querySelector('#modal-container');
+        let app = document.querySelector('#app');
+        app.classList.add('blur');
+
+        {/* eslint-disable */}
+        var node = ReactDom.findDOMNode(container);
+        ReactDom.render((<LogoutModal auth={this.props.auth} onLogout={this.onLogout} onCancel={this.onCancel} />), node);
+    }
+
+    removeModal() {
+        let app = document.querySelector('#app');
+        app.classList.remove('blur');
+
+        let container = document.querySelector('#modal-container');
+        ReactDom.unmountComponentAtNode(container);
     }
 
     render() {
@@ -77,7 +83,7 @@ class Header extends React.Component {
                             onLogoutClicked={this.onLogoutClicked} />
                     </div>
                 </div>
-                {this.state.isLogoutClicked && this.renderModalDialog()}
+                {this.state.isLogoutClicked && this.renderModal()}
             </div>
         )
     }

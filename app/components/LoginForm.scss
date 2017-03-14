@@ -1,33 +1,142 @@
+.login .logo {
+  width: 200px;
+  min-width: 100px;
+  min-height: 54px;
+  height: 108px;
+  background: url(/img/logo.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: 40px auto 40px;
+}
+.login form {
+  margin-bottom: 50px;
+  width: 100%;
+}
+.login input {
+  height: 30px;
+  line-height: 30px;
+  border: 0;
+  border-bottom: 1px solid #000;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  display: block;
+  width: 150px;
+}
+
 .login {
+  background: #7dcac7;
+  background: linear-gradient(to bottom right,  #7dcaa4 0%, #7dcac7 100%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    height: 50%;
+  }
+
   input {
     transition: all 0.4s;
-    font-size: 1.5em;
+    appearance: none;
+    outline: 0;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 200px;
+    border-radius: 3px;
+    padding: 5px 0;
+    margin: 0 auto 10px auto;
+    text-align: center;
+    font-size: 1.6em;
+    color: white;
+    transition-duration: 0.25s;
     font-weight: 300;
-    border-bottom: solid 1px #ddd;
+    display: block;
+    box-sizing: content-box;
+
+    @media (min-width: 769px) {
+      padding: 10px 20px;
+      width: 250px;
+    }
+
+    &:hover {
+      border: solid 1px #64B1AE;
+      background: rgba(255, 255, 255, 1);
+      color: #64B1AE;
+
+      ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: #64B1AE;
+      }
+      :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: #64B1AE;
+        opacity: 1;
+      }
+      ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: #64B1AE;
+        opacity: 1;
+      }
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #64B1AE;
+      }
+    }
+
     &:focus {
+      background-color: white;
+      width: 300px;
       outline: 0;
-      border-bottom: solid 1px #64B1AE;
+      border: solid 1px #64B1AE;
+      color: #64B1AE;
+
+      @media (max-width: 768px) {
+        width: 250px;
+      }
     }
   }
+
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+    opacity: 1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+    opacity: 1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+
   .gp-input {
     margin-bottom: 20px;
   }
   .gp-login-submit-btn {
     font-weight: 600;
     transition: all 0.2s;
-    background: #7dcac7;
     text-transform: uppercase;
-    border: 0;
     padding: 15px 50px;
     border-radius: 50px;
+    border: 2px solid #7dcac7;
+    background: white;
+    color: #7dcac7;;
 
-    &:hover, &:active, &:focus {
-      background: #64B1AE;
-      border: 0;
+    &:hover {
+      border: 2px solid #64B1AE;
+      color: #64B1AE;
+      background: #f5f7f9;
     }
+
     &:active, &:focus {
-      background: #64B1AE;
-      border: 0;
+      background: white;
+      border: 2px solid #64B1AE;
+      color: #64B1AE;
       outline: 0;
     }
 
