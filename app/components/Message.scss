@@ -1,29 +1,61 @@
-.messagesContainer .messageTopic {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 5px;
-  font-weight: bold;
-}
-.messagesContainer .messageDate {
-  float: right;
-}
-.messagesContainer .messageText {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 5px;
-  margin-bottom: 1px;
+.message {
+  display: flex;
+  margin: 10px;
+  border: 1px solid #d2d2d2;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+
+  > div {
+    padding: 10px;
+  }
+
+  .message__date {
+    width: 120px;
+    text-align: center;
+    border-right: 1px solid #d2d2d2;
+
+    span {
+      display: block;
+    }
+  }
+
+  .message__text {
+    flex-grow: 1;
+    background-color: #F7F7F5;
+
+    span {
+      display: block;
+    }
+  }
+
+  .message__type {
+    border-left: 1px solid #d2d2d2;
+    width: 50px;
+  }
 }
 
-.messageType0, .messageType1 {
-background-color: #FFD6CC;
+.subscribe {
+  background: #7dcaa4;
+  background: linear-gradient(to bottom right, #7dcaa4 0%, #7dcac7 100%);
 }
-.messageType2, .messageType3  {
-  background-color: #E7F4D3;
+
+.unsubscribe {
+  background: #ca937d;
+  background: linear-gradient(to bottom right,  #ca937d 0%, #ca7d7d 100%);
 }
-.messageType4, .messageType5  {
-  background-color: #D5DEE6;
+
+.info {
+  background: #D5DEE6;
+  background: linear-gradient(to bottom right,  #EEF7FF 0%, #D5DEE6 100%);
 }
-.gp-message.unread{
+
+.unread{
   cursor:pointer;
   font-weight:600;
 }

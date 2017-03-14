@@ -20,6 +20,18 @@ class Header extends React.Component {
         this.onCancel = this.onCancel.bind(this);
     }
 
+    componentDidUpdate() {
+        if(this.state.isLogoutClicked ) {
+            let container = document.querySelector('#modal-container');
+            let app = document.querySelector('#app');
+            app.classList.add('blur');
+
+            {/* eslint-disable */}
+            var node = ReactDom.findDOMNode(container);
+            ReactDom.render((<LogoutModal auth={this.props.auth} onLogout={this.onLogout} onCancel={this.onCancel} />), node);
+        }
+    }
+
     toggleMenu(event) {
         event.stopPropagation();
         this.setState({isOpened: !this.state.isOpened});
@@ -48,16 +60,6 @@ class Header extends React.Component {
         this.setState({isLogoutClicked: false});
     }
 
-    renderModal() {
-        let container = document.querySelector('#modal-container');
-        let app = document.querySelector('#app');
-        app.classList.add('blur');
-
-        {/* eslint-disable */}
-        var node = ReactDom.findDOMNode(container);
-        ReactDom.render((<LogoutModal auth={this.props.auth} onLogout={this.onLogout} onCancel={this.onCancel} />), node);
-    }
-
     removeModal() {
         let app = document.querySelector('#app');
         app.classList.remove('blur');
@@ -83,7 +85,6 @@ class Header extends React.Component {
                             onLogoutClicked={this.onLogoutClicked} />
                     </div>
                 </div>
-                {this.state.isLogoutClicked && this.renderModal()}
             </div>
         )
     }
