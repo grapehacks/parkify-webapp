@@ -15,7 +15,7 @@ export default function authReducer(state = initialState, action = undefined) {
         case LOGGING_IN:
             return Object.assign({}, state, {
                 logging: true,
-                error: '',
+                error: ''
             });
         case LOGGED_IN:
             return Object.assign({}, state, {

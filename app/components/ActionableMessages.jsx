@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+/*eslint-disable*/
 import Message from './Message';
 class ActionableMessages extends Component {
     componentDidMount() {

@@ -12,7 +12,7 @@ export default function messagesReducer(state = initialState, action = undefined
         case GET_MESSAGES:
             return Object.assign({}, state, {
                 gettingMessages: true,
-                error: '',
+                error: ''
             });
         case GOT_MESSAGES:
             return Object.assign({}, state, {
@@ -23,7 +23,7 @@ export default function messagesReducer(state = initialState, action = undefined
         case GET_MESSAGES_ERROR:
             return Object.assign({}, state, {
                 gettingMessages: false,
-                error: '',
+                error: ''
             });
         case MARKED_AS_READ:
             let index = state.messages.indexOf(state.messages.filter(m => m._id === action.message._id)[0]);
