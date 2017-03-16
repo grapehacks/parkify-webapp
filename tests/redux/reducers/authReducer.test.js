@@ -1,5 +1,5 @@
 import authReducer from '../../../app/redux/reducers/authReducer';
-import {LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT, PING} from '../../../app/redux/actions/authActions'
+import {LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT, PING} from '../../../app/redux/actions/actionTypes'
 import {SUBSCRIBE, UNSUBSCRIBE} from '../../../app/redux/actions/subscribeActions'
 
 function storageMock() {

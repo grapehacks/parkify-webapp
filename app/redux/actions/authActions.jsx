@@ -1,17 +1,37 @@
-/*
- * action types
- */
-import {hashHistory} from 'react-router';
-export const LOGGING_IN = 'LOGGING_IN';
-export const LOGGED_IN = 'LOGGED_IN';
-export const LOGGED_OUT = 'LOGGED_OUT';
-export const LOGOUT = 'LOGOUT';
-export const LOGIN_FAILED = 'LOGIN_FAILED';
-export const PING = 'PING';
+import {LOGGING_IN, LOGGED_IN, LOGGED_OUT, LOGOUT, LOGIN_FAILED, PING} from './actionTypes';
 
-/*
- * action creators
- */
+export const loggingIn = (credentials) => ({
+    type: LOGGING_IN,
+    credentials
+});
+
+export const loggedIn = ({user, token}) => ({
+    type: LOGGED_IN,
+    user,
+    token
+});
+
+export const loggedOut = () => ({
+    type: LOGGED_OUT
+});
+
+export const logout = () => ({
+    type: LOGOUT
+});
+
+export const loginFailed = ({error}) => ({
+    type: LOGIN_FAILED,
+    error: 'Failed to login. ' + error
+});
+
+export const ping = ({user, date}) => ({
+    type: PING,
+    user,
+    date
+});
+
+import {hashHistory} from 'react-router';
+
 /*eslint-disable*/
 export function login(credentials) {
     return (dispatch, state, api) => {

@@ -5,8 +5,9 @@ import styles from './style.scss';
 /* eslint-enable */
 import routes from './config/routes.jsx';
 import { Provider } from 'react-redux'
-import store  from './redux/parkifyStore.jsx';
+import configureStore  from './redux/store/configureStore';
 
+const store = configureStore();
 const App = () => (
     <Provider store={store}>
         {routes}

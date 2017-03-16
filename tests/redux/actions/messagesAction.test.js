@@ -1,7 +1,6 @@
 import { getMessages, markAsRead, ping, GET_MESSAGES, GOT_MESSAGES, GET_MESSAGES_ERROR, MARKED_AS_READ } from '../../../app/redux/actions/messagesActions';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { mockFetch, mockFetchError } from '../../utils/testUtils';
 
 jest.mock('react-router');
 jest.useFakeTimers();

@@ -1,14 +1,19 @@
-/*
- * action types
- */
+import {PROCESS, SUBSCRIBE, UNSUBSCRIBE} from './actionTypes';
 
-export const UNSUBSCRIBE = 'UNSUBSCRIBE';
-export const SUBSCRIBE = 'SUBSCRIBE';
-export const PROCESS = 'PROCESS';
+export const process = () => ({
+    type: PROCESS
+});
 
-/*
- * action creators
- */
+export const subscribe = ({user}) => ({
+    type: SUBSCRIBE,
+    user
+});
+
+export const unsubscribe = ({user}) => ({
+    type: UNSUBSCRIBE,
+    user
+});
+
 
 export function subscribe(params) {
     return (dispatch, state, api) => {

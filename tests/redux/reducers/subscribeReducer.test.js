@@ -1,5 +1,5 @@
 import authReducer from '../../../app/redux/reducers/subscribeReducer';
-import {SUBSCRIBE, UNSUBSCRIBE, PROCESS} from '../../../app/redux/actions/subscribeActions'
+import {SUBSCRIBE, UNSUBSCRIBE, PROCESS} from '../../../app/redux/actions/actionTypes'
 
 describe('subscribeReducer', () => {
 

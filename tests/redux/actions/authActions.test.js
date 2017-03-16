@@ -1,7 +1,6 @@
 import { login, logout, ping, LOGGING_IN, LOGGED_IN, LOGGED_OUT, PING } from '../../../app/redux/actions/authActions';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { mockFetch, mockFetchError } from '../../utils/testUtils';
 
 jest.mock('react-router');
 jest.useFakeTimers();

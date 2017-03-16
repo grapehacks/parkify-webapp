@@ -1,5 +1,5 @@
 import authReducer from '../../../app/redux/reducers/messagesReducer';
-import {GET_MESSAGES, GOT_MESSAGES, GET_MESSAGES_ERROR, MARKED_AS_READ} from '../../../app/redux/actions/messagesActions'
+import {GET_MESSAGES, GOT_MESSAGES, GET_MESSAGES_ERROR, MARKED_AS_READ} from '../../../app/redux/actions/actionTypes'
 
 describe('messagesReducer', () => {
 

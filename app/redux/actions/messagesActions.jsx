@@ -1,14 +1,25 @@
-/*
- * action types
- */
-export const GET_MESSAGES = 'GET_MESSAGES';
-export const GOT_MESSAGES = 'GOT_MESSAGES';
-export const GET_MESSAGES_ERROR = 'GET_MESSAGES_ERROR';
-export const MARKED_AS_READ = 'MARKED_AS_READ';
+import {GET_MESSAGES, GOT_MESSAGES, GET_MESSAGES_ERROR, MARKED_AS_READ} from './actionTypes';
 
-/*
- * action creators
- */
+export const getMessages = () => ({
+    type: GET_MESSAGES
+});
+
+export const getMessages = ({messages}) => ({
+    type: GOT_MESSAGES,
+    messages
+});
+
+export const getMessagesError = ({error}) => ({
+    type: GET_MESSAGES_ERROR,
+    error: 'Failed to retrieve messages. ' + error
+});
+
+export const markAsRead = ({message}) => ({
+    type: MARKED_AS_READ,
+    message
+});
+
+
 /*eslint-disable*/
 export function getMessages() {
     return (dispatch, state, api) => {

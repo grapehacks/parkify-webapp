@@ -22,7 +22,7 @@ class Message extends React.Component {
         const day = DateUtils.getDayString(date);
         const monthDay = DateUtils.getMonthDayString(date);
         return (
-            <div className={isReadClass + ' message'} onClick={() => {this.props.handleClick()}}>
+            <div className={isReadClass + ' message'} onClick={this.props.handleClick}>
                 <div className={typeClass + ' message__date'}>
                     <span>{day}</span>
                     <span>{monthDay}</span>
