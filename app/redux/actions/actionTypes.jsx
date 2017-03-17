@@ -4,7 +4,8 @@ export const LOGGED_IN = 'LOGGED_IN';
 export const LOGGED_OUT = 'LOGGED_OUT';
 export const LOGOUT = 'LOGOUT';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
-export const PING = 'PING';
+export const PING_SUCCESS = 'PING_SUCCESS';
+export const PING_START = 'PING_START';
 /* MESSAGES API */
 export const GET_MESSAGES = 'GET_MESSAGES';
 export const GOT_MESSAGES = 'GOT_MESSAGES';

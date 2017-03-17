@@ -4,16 +4,17 @@ export const process = () => ({
     type: PROCESS
 });
 
-export const subscribe = ({user}) => ({
+export const subscribe = (payload) => ({
     type: SUBSCRIBE,
-    user
+    payload
 });
 
-export const unsubscribe = ({user}) => ({
+export const unsubscribe = (payload) => ({
     type: UNSUBSCRIBE,
-    user
+    payload
 });
 
+/*
 
 export function subscribe(params) {
     return (dispatch, state, api) => {
@@ -32,4 +33,5 @@ export function unsubscribe(params) {
         });
     };
 }
+*/
 

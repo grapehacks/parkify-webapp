@@ -6,7 +6,7 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 var config = {
-    entry: './app/main.jsx',
+    entry: './app/index.jsx',
     output: {
         publicPath: '/',
         path: __dirname + '/build',

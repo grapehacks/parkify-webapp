@@ -4,23 +4,24 @@ export const getMessages = () => ({
     type: GET_MESSAGES
 });
 
-export const getMessages = ({messages}) => ({
+export const gotMessages = (payload) => ({
     type: GOT_MESSAGES,
-    messages
+    payload
 });
 
-export const getMessagesError = ({error}) => ({
+export const getMessagesError = (payload) => ({
     type: GET_MESSAGES_ERROR,
-    error: 'Failed to retrieve messages. ' + error
+    payload
 });
 
-export const markAsRead = ({message}) => ({
+export const markAsRead = (payload) => ({
     type: MARKED_AS_READ,
-    message
+    payload
 });
 
 
-/*eslint-disable*/
+/*
+/!*eslint-disable*!/
 export function getMessages() {
     return (dispatch, state, api) => {
         dispatch({type: GET_MESSAGES});
@@ -42,4 +43,4 @@ export function markAsRead(message) {
             console.log(res);
         });
     }
-}
+}*/

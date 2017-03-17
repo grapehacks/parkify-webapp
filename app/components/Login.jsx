@@ -3,8 +3,11 @@ import ParkifyLogin from '../containers/ParkifyLogin';
 
 class Login extends Component {
     componentDidMount(){
-
+        // if user is redirected to this component than he needs to login again
+        localStorage.removeItem('authenticated');
+        localStorage.removeItem('token');
     }
+
     render() {
         return (
             <div className="container">

@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleSubmit: (credentials) => {
-            this.props.dispatch(loggingIn(credentials));
+            dispatch(loggingIn({credentials}));
         },
         handleLoaded: () => {
 

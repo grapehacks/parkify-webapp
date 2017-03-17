@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import ReactDom from 'react-dom';
 import {connect} from 'react-redux'
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 import AvatarMenu from './AvatarMenu';
 import LogoutModal from './LogoutModal';
 import {logout} from '../redux/actions/authActions';
@@ -107,6 +107,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleLogoutClick: () => {
+            hashHistory.push('/login');
             dispatch(logout());
         }
     }

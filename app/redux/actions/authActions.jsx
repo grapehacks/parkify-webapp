@@ -1,14 +1,13 @@
-import {LOGGING_IN, LOGGED_IN, LOGGED_OUT, LOGOUT, LOGIN_FAILED, PING} from './actionTypes';
+import {LOGGING_IN, LOGGED_IN, LOGGED_OUT, LOGOUT, LOGIN_FAILED, PING_SUCCESS, PING_START} from './actionTypes';
 
-export const loggingIn = (credentials) => ({
+export const loggingIn = (payload) => ({
     type: LOGGING_IN,
-    credentials
+    payload
 });
 
-export const loggedIn = ({user, token}) => ({
+export const loggedIn = (payload) => ({
     type: LOGGED_IN,
-    user,
-    token
+    payload
 });
 
 export const loggedOut = () => ({
@@ -19,20 +18,25 @@ export const logout = () => ({
     type: LOGOUT
 });
 
-export const loginFailed = ({error}) => ({
+export const loginFailed = (payload) => ({
     type: LOGIN_FAILED,
-    error: 'Failed to login. ' + error
+    payload
 });
 
-export const ping = ({user, date}) => ({
-    type: PING,
-    user,
-    date
+export const pingSuccess = (payload) => ({
+    type: PING_SUCCESS,
+    payload
 });
 
+export const pingStart = (payload) => ({
+    type: PING_START,
+    payload
+});
+
+/*
 import {hashHistory} from 'react-router';
 
-/*eslint-disable*/
+/!*eslint-disable*!/
 export function login(credentials) {
     return (dispatch, state, api) => {
         dispatch({type: LOGGING_IN});
@@ -77,4 +81,4 @@ export function ping(force) {
             }, 30 * 1000);
         }
     }
-}
+}*/

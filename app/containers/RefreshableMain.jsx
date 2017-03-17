@@ -1,5 +1,4 @@
 import Main from './../components/Main';
-import {ping} from './../redux/actions/authActions';
 import { connect } from 'react-redux'
 
 const mapStateToProps = () => {
@@ -8,10 +7,9 @@ const mapStateToProps = () => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = () => {
     return {
         handleMount: () =>{
-            dispatch(ping());
         }
     }
 };

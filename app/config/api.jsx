@@ -1,2 +1,1 @@
-const URL = 'http://parkify.grapeup.com';
-export default URL;
+export const URL = 'http://parkify.grapeup.com';
