@@ -116,7 +116,47 @@ describe('authSaga test', () => {
     });
 
     describe('pingStartSaga', () => {
+        const saga = pingStartSaga();
+        const delayTime = 30000;
+        const mockPingResponse = {
+            user: {
+                name: 'name',
+                surname: 'surname'
+            },
+            date: '2017-03-18'
+        };
+        localStorage.setItem('token', 'fakeToken');
+        let output;
 
+        it('should call ping api with delay', (done) => {
+            output = saga.next(mockPingResponse).value;
+            let expected = call(ping, localStorage.getItem('token'));
+            expect(output).toEqual(expected);
+
+            output = saga.next(mockPingResponse).value;
+            expected = put(pingSuccess({date: mockPingResponse.date, user: mockPingResponse.user}));
+            expect(output).toEqual(expected);
+
+            //delay
+            saga.next(delayTime);
+
+            // 2nd time
+            output = saga.next(mockPingResponse).value;
+            expected = call(ping, localStorage.getItem('token'));
+            expect(output).toEqual(expected);
+
+            output = saga.next(mockPingResponse).value;
+            expected = put(pingSuccess({date: mockPingResponse.date, user: mockPingResponse.user}));
+            expect(output).toEqual(expected);
+
+            // delay
+            saga.next(delayTime);
+
+            localStorage.setItem('token', '');
+            const finished = saga.next().done;
+            expect(finished).toEqual(true);
+            done();
+        });
     });
 
 });
