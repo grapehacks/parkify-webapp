@@ -57,6 +57,6 @@ export default function* watch() {
     yield* [
         takeLatest(LOGGING_IN, loginSaga),
         takeLatest(LOGOUT, logoutSaga),
-        takeLatest(PING_START, pingStartSaga)
+        takeLatest(PING_START, pingStartSaga),
     ];
 }

@@ -1,7 +1,12 @@
-import {PROCESS, SUBSCRIBE, UNSUBSCRIBE} from './actionTypes';
+import {PROCESS, FAILED, SUBSCRIBE, UNSUBSCRIBE, UNSUBSCRIBE_SUCCESS, SUBSCRIBE_SUCCESS} from './actionTypes';
 
 export const process = () => ({
     type: PROCESS
+});
+
+export const failed = ({payload}) => ({
+    type: FAILED,
+    payload
 });
 
 export const subscribe = (payload) => ({
@@ -14,24 +19,13 @@ export const unsubscribe = (payload) => ({
     payload
 });
 
-/*
+export const subscribeSuccess = (payload) => ({
+    type: SUBSCRIBE_SUCCESS,
+    payload
+});
 
-export function subscribe(params) {
-    return (dispatch, state, api) => {
-        dispatch({type: PROCESS});
-        api.subscriptionAPI.subscribe(params).then((res) => {
-            dispatch({type: SUBSCRIBE, user: res});
-        });
-    };
-}
-
-export function unsubscribe(params) {
-    return (dispatch, state, api) => {
-        dispatch({type: PROCESS});
-        api.subscriptionAPI.unsubscribe(params).then((res) => {
-            dispatch({type: UNSUBSCRIBE, user: res});
-        });
-    };
-}
-*/
+export const unsubscribeSuccess = (payload) => ({
+    type: UNSUBSCRIBE_SUCCESS,
+    payload
+});
 

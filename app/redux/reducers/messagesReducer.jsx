@@ -1,4 +1,4 @@
-import {GET_MESSAGES, GOT_MESSAGES, GET_MESSAGES_ERROR, MARKED_AS_READ} from '../actions/messagesActions.jsx'
+import {GET_MESSAGES_START, GET_MESSAGES_SUCCESS, GET_MESSAGES_FAILED, MARKED_AS_READ, MARK_AS_READ_FAILED} from '../actions/actionTypes'
 
 const initialState = {
     messages: [],
@@ -9,30 +9,34 @@ const initialState = {
 export default function messagesReducer(state = initialState, action = undefined) {
     switch (action.type) {
         //Markin_as_read, getting_messages etc
-        case GET_MESSAGES:
+        case GET_MESSAGES_START:
             return Object.assign({}, state, {
                 gettingMessages: true,
                 error: ''
             });
-        case GOT_MESSAGES:
+        case GET_MESSAGES_SUCCESS:
             return Object.assign({}, state, {
                 gettingMessages: false,
                 error: '',
-                messages: action.messages
+                messages: action.payload.messages
             });
-        case GET_MESSAGES_ERROR:
+        case GET_MESSAGES_FAILED:
             return Object.assign({}, state, {
                 gettingMessages: false,
-                error: ''
+                error: action.payload.error
             });
         case MARKED_AS_READ:
-            let index = state.messages.indexOf(state.messages.filter(m => m._id === action.message._id)[0]);
+            let index = state.messages.indexOf(state.messages.filter(m => m._id === action.payload.message._id)[0]);
             let messages = state.messages.slice(0, index);
-            messages.push(action.message);
+            messages.push(action.payload.message);
             messages = messages.concat(state.messages.slice(index + 1));
 
             return Object.assign({}, state, {
                 messages
+            });
+        case MARK_AS_READ_FAILED:
+            return Object.assign({}, state, {
+                error: action.payload.error
             });
         default:
             return state

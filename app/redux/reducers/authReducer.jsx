@@ -1,4 +1,4 @@
-import { LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT, PING_SUCCESS, SUBSCRIBE, UNSUBSCRIBE } from '../actions/actionTypes'
+import { LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT, PING_SUCCESS, SUBSCRIBE_SUCCESS, UNSUBSCRIBE_SUCCESS } from '../actions/actionTypes'
 
 const initialState = {
     logged: false,
@@ -58,8 +58,8 @@ export default function authReducer(state = initialState, action = undefined) {
                     user: {}
                 });
             }
-        case SUBSCRIBE:
-        case UNSUBSCRIBE:
+        case SUBSCRIBE_SUCCESS: // after subscribe/un-subscribe we need to refresh auth.user data
+        case UNSUBSCRIBE_SUCCESS:
             return Object.assign({}, state, {
                 user: action.payload.user
             });

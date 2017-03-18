@@ -13,9 +13,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleClick: (register, remember) => {
-            if (register) {
+            if (register) { // register in lottery
                 dispatch(subscribe({rememberLastChoice: remember}));
-            } else {
+            } else { // un-register in lottery
                 dispatch(unsubscribe({rememberLastChoice: remember}));
             }
         }
