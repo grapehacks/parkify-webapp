@@ -10,6 +10,10 @@ const initialState = {
 };
 
 export default function authReducer(state = initialState, action = undefined) {
+    if(action === undefined) {
+        return state;
+    }
+
     switch (action.type) {
         case LOGGING_IN:
             return Object.assign({}, state, {

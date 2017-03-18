@@ -48,4 +48,13 @@ describe('ActionableMessages component', () => {
         expect(wrapper.find('p').text()).to.equal('No messages found...');
     });
 
+    it('should handle all clicks on messages inside markAsReadMethod', () => {
+        const wrapper = mount( <ActionableMessages {...props} /> );
+        const messages = wrapper.find('div.message');
+        expect(messages).to.have.length(2);
+        messages.first().simulate('click');
+        expect(props.markAsRead.mock.calls.length).to.equal(1);
+        expect(props.markAsRead.mock.calls[0][0]).deep.equal({_id: 1, type: 1, text: 'text1', topic: 'topic1', read: false, date: '2017-03-15'});
+    });
+
 });

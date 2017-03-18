@@ -23,7 +23,7 @@ class ActionableMessages extends Component {
                     key={m._id}
                     type={m.type}
                     isRead={m.read}
-                    handleClick={this.markAsRead(messages)}
+                    handleClick={this.markAsRead(m)}
                     date={m.date}/>
             );
         }) : (<p className="text-center" >No messages found...</p>);

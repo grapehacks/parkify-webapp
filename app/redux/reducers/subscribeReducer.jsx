@@ -1,4 +1,4 @@
-import { SUBSCRIBE_SUCCESS, UNSUBSCRIBE_SUCCESS, PROCESS, FAILED } from '../actions/subscribeActions.jsx'
+import { SUBSCRIBE_SUCCESS, UNSUBSCRIBE_SUCCESS, PROCESS, FAILED } from '../actions/actionTypes'
 
 const initialState = {
     subscribed: false,
@@ -6,6 +6,10 @@ const initialState = {
 };
 
 export default function subscribeReducer(state = initialState, action = undefined) {
+    if(action === undefined) {
+        return state;
+    }
+
     switch (action.type) {
         case SUBSCRIBE_SUCCESS:
             return Object.assign({}, state, {

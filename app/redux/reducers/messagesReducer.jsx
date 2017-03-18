@@ -7,6 +7,10 @@ const initialState = {
 };
 /*eslint-disable*/
 export default function messagesReducer(state = initialState, action = undefined) {
+    if(action === undefined) {
+        return state;
+    }
+
     switch (action.type) {
         //Markin_as_read, getting_messages etc
         case GET_MESSAGES_START:
