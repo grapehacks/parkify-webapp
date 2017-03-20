@@ -1,0 +1,27 @@
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .account__avatar {
+    border-radius: 100%;
+    border: 1px solid #D1D1CF;
+    width: 100px;
+    height: 100px;
+    background-image: url(/img/no_user_photo.svg);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 80px;
+  }
+
+  .account__form {
+    p {
+      font-size: 2em;
+    }
+
+    .account__form-email {
+      font-size: 1.2em;
+    }
+  }
+}

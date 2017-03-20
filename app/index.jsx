@@ -12,7 +12,7 @@ import styles from './style.scss';
 /* eslint-enable */
 import RefreshableMain from './containers/RefreshableMain';
 import Home from './components/Home.jsx';
-import Settings from './components/Settings.jsx';
+import Account from './containers/Account.jsx';
 import Messages from './components/Messages.jsx';
 import Login from './components/Login.jsx';
 
@@ -39,7 +39,7 @@ const App = () => (
                 <Route path='/app' component={RefreshableMain} onEnter={requireAuth}>
                     <IndexRedirect to="/app/home"/>
                     <Route path='/app/home' component={Home} />
-                    <Route path='/app/settings' component={Settings} />
+                    <Route path='/app/account' component={Account} />
                     <Route path='/app/messages' component={Messages} />
                 </Route>
                 <Route path="/login" component={Login}/>
