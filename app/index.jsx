@@ -14,6 +14,7 @@ import RefreshableMain from './containers/RefreshableMain';
 import Home from './components/Home.jsx';
 import Account from './containers/Account.jsx';
 import Messages from './components/Messages.jsx';
+import Winners from './containers/Winners.jsx';
 import Login from './components/Login.jsx';
 
 /* CREATING SAGA MIDDLEWARE AND STORE */
@@ -41,6 +42,7 @@ const App = () => (
                     <Route path='/app/home' component={Home} />
                     <Route path='/app/account' component={Account} />
                     <Route path='/app/messages' component={Messages} />
+                    <Route path='/app/winners' component={Winners} />
                 </Route>
                 <Route path="/login" component={Login}/>
                 <IndexRedirect to="/login"/>

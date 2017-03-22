@@ -1,1 +1,1 @@
-export const URL = 'http://parkify.grapeup.com';
+export const URL = 'http://10.20.1.106:8080';

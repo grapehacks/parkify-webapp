@@ -61,28 +61,28 @@
         font-size: 1em;
         width: 7em;
       }
-
-      .subscribe-btn {
-        border: 1px solid #7dcac7;
-        background: white;
-        color: #7dcac7;
-
-        &:hover {
-          border: 1px solid #64B1AE;
-          color: #64B1AE;
-        }
-      }
-
-      .unsubscribe-btn {
-        border: 1px solid #ca937d;
-        background: white;
-        color: #ca937d;
-
-        &:hover {
-          border: 1px solid #a7765f;
-          color: #a7765f;
-        }
-      }
     }
+  }
+}
+
+.subscribe-btn {
+  border: 1px solid #7dcac7;
+  background: white;
+  color: #7dcac7;
+
+  &:hover {
+    border: 1px solid #64B1AE;
+    color: #64B1AE;
+  }
+}
+
+.unsubscribe-btn {
+  border: 1px solid #ca937d;
+  background: white;
+  color: #ca937d;
+
+  &:hover {
+    border: 1px solid #a7765f;
+    color: #a7765f;
   }
 }

@@ -12,9 +12,9 @@ class Message extends React.Component {
         const isReadClass = this.props.isRead ? 'read' : 'unread';
         let typeClass = '';
         if(this.props.type <= 1) {
-            typeClass = 'subscribe';
-        } else if(this.props.type <= 3) {
             typeClass = 'unsubscribe';
+        } else if(this.props.type <= 3) {
+            typeClass = 'subscribe';
         } else {
             typeClass = 'info';
         }

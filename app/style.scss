@@ -159,8 +159,13 @@ footer {
   justify-content: center;
   
   p {
-    margin: 15px;
-    font-size: 1.2em;
+    margin: 5px;
+    font-size: 0.8em;
+
+    @media (min-width: 400px) {
+      margin: 15px;
+      font-size: 1.2em;
+    }
   }
 }
 

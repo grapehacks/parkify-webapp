@@ -27,6 +27,7 @@ const AvatarMenu = (props) => {
                     <ul>
                         <li><Link to='/app/home' activeClassName='active'>Home</Link></li>
                         <li><Link to='/app/messages' activeClassName='active'>Messages</Link></li>
+                        <li><Link to='/app/winners' activeClassName='active'>Winners</Link></li>
                         <li><Link to='/app/account' activeClassName='active'>Account</Link></li>
                         <li className="separator"></li>
                         <li><a onClick={props.onLogoutClicked}>Logout</a></li>

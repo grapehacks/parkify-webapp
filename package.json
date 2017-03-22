@@ -4,7 +4,7 @@
   "description": "Grape Up Hackathon - Parking spots drawing app",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --port 8081 --inline --hot",
+    "start": "webpack-dev-server --port 8081 --host 10.20.1.106 --inline --hot",
     "dev": "webpack --progress --colors --watch",
     "prod": "webpack -p --define process.env.NODE_ENV='production'",
     "test": "jest --coverage"
