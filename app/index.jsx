@@ -16,6 +16,8 @@ import Account from './containers/Account.jsx';
 import Messages from './components/Messages.jsx';
 import Winners from './containers/Winners.jsx';
 import Login from './components/Login.jsx';
+import ManageUsers from './containers/ManageUsers.jsx';
+import ManageCards from './containers/ManageCards.jsx';
 
 /* CREATING SAGA MIDDLEWARE AND STORE */
 const sagaMiddleware = createSagaMiddleware();
@@ -33,6 +35,16 @@ function requireAuth(nextState, replace) {
     }
 }
 
+function requireBeAdmin(nextState, replace) {
+    const { auth } = store.getState();
+    if (!auth.user || !localStorage.getItem('token') || !localStorage.getItem('authenticated') || auth.user.type !== 1) {
+        replace({
+            pathname: '/app/home',
+            state: { nextPathname: nextState.location.pathname }
+        });
+    }
+}
+
 const App = () => (
     <Provider store={store}>
         <Router history={hashHistory}>
@@ -43,6 +55,8 @@ const App = () => (
                     <Route path='/app/account' component={Account} />
                     <Route path='/app/messages' component={Messages} />
                     <Route path='/app/winners' component={Winners} />
+                    <Route path='/app/admin/manage-users' component={ManageUsers} onEnter={requireBeAdmin} />
+                    <Route path='/app/admin/manage-cards' component={ManageCards} onEnter={requireBeAdmin} />
                 </Route>
                 <Route path="/login" component={Login}/>
                 <IndexRedirect to="/login"/>

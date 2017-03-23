@@ -18,7 +18,7 @@ class DateUtils {
         var yyyy = date.getFullYear();
         var mm = date.getMonth() < 9 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1); // getMonth() is zero-based
         var dd  = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-        return ''.concat(dd).concat('-').concat(mm).concat('-').concat(yyyy);
+        return ''.concat(dd).concat('.').concat(mm).concat('.').concat(yyyy);
     }
 
     static getDayString(date) {

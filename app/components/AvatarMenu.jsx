@@ -30,6 +30,10 @@ const AvatarMenu = (props) => {
                         <li><Link to='/app/winners' activeClassName='active'>Winners</Link></li>
                         <li><Link to='/app/account' activeClassName='active'>Account</Link></li>
                         <li className="separator"></li>
+                        {props.isAdmin && <li><Link to='/app/admin/manage-users' activeClassName='active'>Manage users</Link></li>}
+                        {props.isAdmin && <li> <Link to='/app/admin/manage-cards' activeClassName='active'>Manage cars</Link></li>}
+                        {props.isAdmin && <li className="separator"></li>}
+
                         <li><a onClick={props.onLogoutClicked}>Logout</a></li>
                     </ul>
                 </div>
@@ -49,6 +53,7 @@ const AvatarMenu = (props) => {
 AvatarMenu.propTypes = {
     counter: PropTypes.number.isRequired,
     isOpened: PropTypes.bool.isRequired,
+    isAdmin: PropTypes.bool.isRequired,
     toggleMenu: PropTypes.func.isRequired,
     onLogoutClicked: PropTypes.func.isRequired
 };

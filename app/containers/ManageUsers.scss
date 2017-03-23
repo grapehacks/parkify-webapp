@@ -1,0 +1,53 @@
+.manage-users {
+
+  .manage-users__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 1.6em;
+
+    @media (min-width: 400px) {
+      margin-top: 1em;
+    }
+  }
+
+  p {
+    font-size: 2em;
+  }
+
+  span {
+    color: #7dcac7;
+    margin-top: 1em;
+  }
+
+  input:not([type='checkbox']) {
+    border: 1px solid #7dcac7;
+    border-radius: initial;
+    color: #7dcac7;
+    padding: 5px;
+    height: 2.4em;
+  }
+
+  input[type='checkbox'] {
+    border: 1px solid #7dcac7;
+    border-radius: initial;
+    color: #7dcac7;
+    padding: 5px;
+  }
+
+  button {
+    padding: 0.3em .6em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 1em;
+    width: 7em;
+    margin: 5px 0;
+
+    @media (min-width: 400px) {
+      padding: 0.6em 1.2em;
+    }
+  }
+}

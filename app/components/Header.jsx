@@ -80,6 +80,7 @@ class Header extends React.Component {
                         <p>{user.name}</p>
                         <AvatarMenu
                             isOpened={this.state.isOpened}
+                            isAdmin={user.type === 1}
                             toggleMenu={this.toggleMenu}
                             counter={this.props.counter ? this.props.counter: 0}
                             onLogoutClicked={this.onLogoutClicked} />
