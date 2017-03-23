@@ -6,7 +6,7 @@ import styles from './Footer.scss';
 class Footer extends React.Component {
     render() {
         return (
-            <div className='gp-footer text-center'>
+            <div className='gp-footer text-center hidden-print'>
                 Powered by <img src="img/grape-logo.png"/>
             </div>
         )

@@ -12,7 +12,8 @@ const WinnersTable = (props) => {
 
     return (
         <div className="winners-table">
-            <p>Winners</p>
+            <p className="hidden-print">Winners</p>
+            <p className="winners-period visible-print">{'Winners for period: ' + props.drawRange}</p>
             <table>
                 <thead>
                     <tr>
@@ -43,7 +44,8 @@ const WinnersTable = (props) => {
 };
 
 WinnersTable.propTypes = {
-    winners: PropTypes.array
+    winners: PropTypes.array,
+    drawRange: PropTypes.string
 };
 
 export default WinnersTable;

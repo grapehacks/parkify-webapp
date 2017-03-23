@@ -71,7 +71,7 @@ class Header extends React.Component {
     render() {
         const user = this.props.auth.user;
         return (
-            <div className='gp-header' onClick={this.hideMenu}>
+            <div className='gp-header hidden-print' onClick={this.hideMenu}>
                 <div className="menu">
                     <Link to='/app/home' activeClassName='active'>
                         <div className="logo pull-left"></div>

@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
+import DateUtils from '../common/DateUtils';
 import {fetchLastDraw} from '../redux/actions/historyActions';
 import WinnersTable from '../components/WinnersTable';
 
@@ -14,11 +15,18 @@ class Winners extends React.Component {
         );
     }
 
+    makeDrawRange(drawDateStr) {
+        const drawDate = new Date(drawDateStr);
+        const dateStartStr = DateUtils.getDateString(drawDate);
+        const dateEndStr = DateUtils.getDateString(DateUtils.incrementByDays(drawDate, 14));
+        return dateStartStr + ' - ' + dateEndStr;
+    }
+
     render() {
         return (
             <div className="content">
                 {this.props.error && this.renderFetchError()}
-                <WinnersTable winners={this.props.winners}/>
+                <WinnersTable winners={this.props.winners} drawRange={this.makeDrawRange(this.props.drawDate)} />
             </div>
         );
     }
@@ -27,6 +35,7 @@ class Winners extends React.Component {
 Winners.propTypes = {
     fetchWinners: PropTypes.func.isRequired,
     winners: PropTypes.array,
+    drawDate: PropTypes.string,
     error: PropTypes.string.isRequired
 };
 
@@ -34,7 +43,8 @@ Winners.propTypes = {
 const mapStateToProps = (state) => {
     const props = {
         winners: state.history.lastDraw.winners,
-        error: state.history.error
+        error: state.history.error,
+        drawDate: state.history.lastDraw.date
     };
     return props;
 };
