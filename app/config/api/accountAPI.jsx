@@ -9,3 +9,11 @@ export const editLicenceNumber = ({id, licenceNumber, token}) => {
         })
         .then(res => res.data);
 };
+
+export const changePassword = ({id, oldPassword, newPassword, confirmPassword, token}) => {
+    return axios
+        .post(URL + `/api/users/${id}/changepassword`, {oldPassword, newPassword, confirmPassword}, {
+            headers: {'x-access-token': token}
+        })
+        .then(res => res.data);
+};

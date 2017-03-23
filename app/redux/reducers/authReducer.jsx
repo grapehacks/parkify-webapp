@@ -1,9 +1,13 @@
-import { LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT, PING_SUCCESS, SUBSCRIBE_SUCCESS, UNSUBSCRIBE_SUCCESS, EDIT_LICENCE_NUMBER_SUCCESS, EDIT_LICENCE_NUMBER_FAILED, CLEAR_ERROR } from '../actions/actionTypes'
+import { LOGGED_IN, LOGGING_IN, LOGIN_FAILED, LOGOUT, LOGGED_OUT,
+    PING_SUCCESS, SUBSCRIBE_SUCCESS, UNSUBSCRIBE_SUCCESS,
+    EDIT_LICENCE_NUMBER_SUCCESS, EDIT_LICENCE_NUMBER_FAILED, CLEAR_MESSAGES,
+    CHANGE_PASSWORD_SUCCESS, CHANGE_PASSWORD_FAILED } from '../actions/actionTypes'
 
 const initialState = {
     logged: false,
     logging: false,
     error: '',
+    success: '',
     token: '',
     date: '',
     user: {}
@@ -71,13 +75,19 @@ export default function authReducer(state = initialState, action = undefined) {
                 user: action.payload.user,
                 error: ''
             });
+        case CHANGE_PASSWORD_FAILED:
         case EDIT_LICENCE_NUMBER_FAILED:
             return Object.assign({}, state, {
                 error: action.payload.error
             });
-        case CLEAR_ERROR:
+        case CLEAR_MESSAGES:
             return Object.assign({}, state, {
-                error: ''
+                error: '',
+                success: ''
+            });
+        case CHANGE_PASSWORD_SUCCESS:
+            return Object.assign({}, state, {
+                success: 'Password was successfully changed.'
             });
         default:
             return state;

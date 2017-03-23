@@ -1,4 +1,4 @@
-import {LOGGING_IN, LOGGED_IN, LOGGED_OUT, LOGOUT, LOGIN_FAILED, PING_SUCCESS, PING_START, PING_FORCE, CLEAR_ERROR} from './actionTypes';
+import {LOGGING_IN, LOGGED_IN, LOGGED_OUT, LOGOUT, LOGIN_FAILED, PING_SUCCESS, PING_START, PING_FORCE, CLEAR_MESSAGES} from './actionTypes';
 
 export const loggingIn = (payload) => ({
     type: LOGGING_IN,
@@ -37,7 +37,7 @@ export const pingStart = (payload) => ({
     payload
 });
 
-export const clearError = (payload) => ({
-    type: CLEAR_ERROR,
+export const clearMessages = (payload) => ({
+    type: CLEAR_MESSAGES,
     payload
 });
