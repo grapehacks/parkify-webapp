@@ -25,10 +25,12 @@ class ManageCards extends React.Component {
                         <input type="text" name="format" value="Skrzyszewski Krzysztof"/>
                         <span>Licence number:</span>
                         <input type="text" name="format" value="Skrzyszewski Krzysztof"/>
-                        <span>Removed:</span>
-                        <div className="checkbox">
-                            <input type="checkbox" id="cb" name="cb" />
-                            <label htmlFor="cb"></label>
+                        <div style={{display: 'flex', margin: '5px 0'}}>
+                            <span style={{marginRight: '10px'}}>Removed:</span>
+                            <div className="checkbox">
+                                <input type="checkbox" id="cb" name="cb" />
+                                <label htmlFor="cb"></label>
+                            </div>
                         </div>
                         <button className="subscribe-btn">Save</button>
                     </div>

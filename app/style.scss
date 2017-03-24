@@ -185,7 +185,7 @@ footer {
   position:relative;
   background-color:white;
   width: 220px;
-  height: 2.4em;
+  height: 3em;
   padding: 5px;
 }
 
@@ -200,6 +200,7 @@ footer {
   border-radius: initial;
   color: #7dcac7;
   padding: 5px;
+  margin: 5px 0;
 }
 
 .select-editable input {
@@ -212,6 +213,7 @@ footer {
   color: #7dcac7;
   border: 1px solid #7dcac7;
   border-radius: initial;
+  margin: 5px 0;
 }
 
 .select-editable select:focus, .select-editable input:focus {
