@@ -1,0 +1,38 @@
+.select-editable {
+  position:relative;
+  background-color:white;
+  width: 220px;
+  height: 3em;
+  padding: 5px;
+}
+
+.select-editable select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1em;
+  width: 220px;
+  height: 2.4em;
+  border: 1px solid #7dcac7;
+  border-radius: initial;
+  color: #7dcac7;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.select-editable input {
+  position:absolute;
+  top:0;
+  left:0;
+  width:200px;
+  height: 2.4em;
+  font-size: 1em;
+  color: #7dcac7;
+  border: 1px solid #7dcac7;
+  border-radius: initial;
+  margin: 5px 0;
+}
+
+.select-editable select:focus, .select-editable input:focus {
+  outline:none;
+}

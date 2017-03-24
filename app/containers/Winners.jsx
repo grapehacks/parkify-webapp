@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import DateUtils from '../common/DateUtils';
 import {fetchLastDraw} from '../redux/actions/historyActions';
-import WinnersTable from '../components/WinnersTable';
+import ParkifyTable from './ParkifyTable';
 
 class Winners extends React.Component {
     componentWillMount() {
@@ -23,10 +23,33 @@ class Winners extends React.Component {
     }
 
     render() {
+        const tableHeader = ['Name', 'Email', 'Licence number', 'Card'];
+        const columnWidth = [40, 30, 20, 10];
+        const limit = 3;
+        const winners = [];
+        if(this.props.winners) {
+            this.props.winners.map((item) => {
+                winners.push({
+                    _id: item.user._id,
+                    name: item.user.name,
+                    email: item.user.email,
+                    licenceNumber: item.user.licenceNumber,
+                    card: item.card.name
+                });
+            });
+        }
         return (
             <div className="content">
                 {this.props.error && this.renderFetchError()}
-                <WinnersTable winners={this.props.winners} drawRange={this.makeDrawRange(this.props.drawDate)} />
+                <ParkifyTable
+                    items={winners}
+                    columnWidth={columnWidth}
+                    header={'Winners'}
+                    printHeader={'Winners for period: ' + this.makeDrawRange(this.props.drawDate)}
+                    tableHeader={tableHeader}
+                    limit={limit}
+                    skipFields={['_id']}
+                    id={'_id'}/>
             </div>
         );
     }

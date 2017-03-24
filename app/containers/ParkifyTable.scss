@@ -1,9 +1,10 @@
-.winners-table {
+.parkify-table {
+
   p {
     font-size: 2em;
   }
 
-  p.winners-period {
+  p.parkify-period {
     font-size: 1.6em;
     margin-bottom: 1.6em;
     font-weight: bold;
@@ -11,7 +12,7 @@
 
   table {
     border-collapse: collapse;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
     width: 100%;
     background: #fff;
   }
@@ -19,14 +20,14 @@
   td, th {
     padding: 0.375em;
     text-align: left;
-    font-size: 2em;
+    font-size: 0.6em;
 
     @media (min-width: 400px) {
       font-size: 0.8em;
     }
 
-    @media (min-width: 580px) {
-      padding: 0.75em 1.5em;
+    @media (min-width: 769px) {
+      padding: 0.75em;
       font-size: 1em;
     }
 
@@ -61,5 +62,24 @@
 
   tbody tr:hover {
     background-color: rgba(129, 208, 177, .3);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    color: #7dcaa4;
+    margin: 5px auto;
+
+    li {
+      padding-right: 5px;
+      list-style: none;
+      cursor: pointer;
+      font-size: 0.6em;
+
+      @media (min-width: 400px) {
+        font-size: 1em;
+      }
+    }
   }
 }
