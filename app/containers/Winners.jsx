@@ -25,7 +25,7 @@ class Winners extends React.Component {
     render() {
         const tableHeader = ['Name', 'Email', 'Licence number', 'Card'];
         const columnWidth = [40, 30, 20, 10];
-        const limit = 3;
+        const limit = 10;
         const winners = [];
         if(this.props.winners) {
             this.props.winners.map((item) => {

@@ -28,7 +28,7 @@ class ActionableMessages extends Component {
             );
         }) : (<p className="text-center" >No messages found...</p>);
         return (
-            <div style={{paddingTop: '40px'}}>
+            <div>
                 {messages}
             </div>
         );

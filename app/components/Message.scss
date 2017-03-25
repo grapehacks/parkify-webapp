@@ -1,10 +1,18 @@
 .message {
   display: flex;
-  margin: 10px;
+  margin: 0;
   border: 1px solid #d2d2d2;
+  background-color: #F7F7F5;
+  font-size: .8em;
   overflow: hidden;
   transition: all 0.3s;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+
+  @media (min-width: 768px) {
+    margin: 10px;
+    font-size: 1em;
+  }
 
   &:hover {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
@@ -12,13 +20,24 @@
   }
 
   > div {
-    padding: 10px;
+    padding: 5px;
+
+    @media (min-width: 768px) {
+      padding: 10px;
+    }
   }
 
   .message__date {
-    width: 120px;
+    min-width: 80px;
+    max-width: 80px;
     text-align: center;
+    font-size: 0.9em;
     border-right: 1px solid #d2d2d2;
+
+    @media (min-width: 768px) {
+      min-width: 120px;
+      max-width: 120px;
+    }
 
     span {
       display: block;
@@ -26,9 +45,7 @@
   }
 
   .message__text {
-    flex-grow: 1;
-    background-color: #F7F7F5;
-
+    width: 100%;
     span {
       display: block;
     }
@@ -36,7 +53,12 @@
 
   .message__type {
     border-left: 1px solid #d2d2d2;
-    width: 50px;
+    width: 20px;
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
   }
 }
 

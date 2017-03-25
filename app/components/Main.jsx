@@ -11,7 +11,7 @@ class Main extends React.Component {
         return (
             <div className="gp-main container">
                 <Header />
-                <div className="container gp-content">
+                <div className="gp-content">
                     {this.props.children}
                 </div>
                 <Footer />
