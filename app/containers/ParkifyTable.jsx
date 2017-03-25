@@ -78,7 +78,11 @@ class ParkifyTable extends React.Component {
         const keys = [];
         const pages = itemsLength / limit;
         for (let i = 0, len = pages; i < len; i++) {
-            keys.push(<li key={'footerPage' + (i + 1)} onClick={this.changePage(i)}>{i + 1}</li>)
+            const style = {
+                fontWeight: this.state.currentPage === i ? 'bold' : 'normal',
+                textDecoration: this.state.currentPage === i ? 'underline' : 'none'
+            };
+            keys.push(<li style={style} key={'footerPage' + (i + 1)} onClick={this.changePage(i)}>{i + 1}</li>)
         }
         return (
             <ul style={{width: tableWidth ? tableWidth + '%' : 'auto'}}>

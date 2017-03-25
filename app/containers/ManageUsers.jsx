@@ -9,14 +9,8 @@ import {searchUsers, fetchUsers, deleteUser, createUser, updateUser, clearMessag
 class ManageUsers extends React.Component {
     constructor() {
         super();
-        this.state = {
-            _id: '',
-            name: '',
-            email: '',
-            licenceNumber: '',
-            removed: false,
-            search: ''
-        };
+        this.getClearState = this.getClearState.bind(this);
+        this.state = this.getClearState();
         this.onTableItemClick = this.onTableItemClick.bind(this);
         this.onUserSelected = this.onUserSelected.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -26,6 +20,17 @@ class ManageUsers extends React.Component {
         this.onClearClick = this.onClearClick.bind(this);
         this.onCheckboxChange = this.onCheckboxChange.bind(this);
         this.timeout = null;
+    }
+
+    getClearState() {
+        return {
+            _id: '',
+            name: '',
+            email: '',
+            licenceNumber: '',
+            search: '',
+            removed: false
+        };
     }
 
     componentWillMount() {
@@ -54,7 +59,7 @@ class ManageUsers extends React.Component {
     }
 
     onUserSelected(userId) {
-        const user = this.props.users.filter((user) => user._id === userId);
+        const user = this.props.users.filter((user) => user._id === userId)[0];
         if(user) {
             this.onTableItemClick(user);
         }
@@ -62,11 +67,12 @@ class ManageUsers extends React.Component {
 
     onTableItemClick(item) {
         const temp = Object.assign({}, this.state);
-        temp._id = item._id;
-        temp.name = item.name;
-        temp.email = item.email;
-        temp.licenceNumber = item.licenceNumber;
-        temp.removed = item.removed;
+        const user = this.props.users.filter((user) => user._id === item._id)[0];
+        temp._id = user._id;
+        temp.name = user.name;
+        temp.email = user.email;
+        temp.licenceNumber = user.licenceNumber;
+        temp.removed = user.removed;
         this.props.handleClearMessages();
         return this.setState(temp);
     }
@@ -80,13 +86,7 @@ class ManageUsers extends React.Component {
     }
 
     onClearClick() {
-        const temp = Object.assign({}, this.state, {
-            _id: '',
-            name: '',
-            email: '',
-            licenceNumber: '',
-            search: ''
-        });
+        const temp = Object.assign({}, this.state, this.getClearState());
         return this.setState(temp);
     }
 
@@ -115,14 +115,7 @@ class ManageUsers extends React.Component {
             });
         }
         if(this.props.success || this.props.error) {
-            this.state = {
-                _id: '',
-                name: '',
-                email: '',
-                licenceNumber: '',
-                search: '',
-                removed: this.state.removed
-            };
+            this.state = this.getClearState();
         }
 
         return (
@@ -150,7 +143,7 @@ class ManageUsers extends React.Component {
                         <div style={{display: 'flex', margin: '5px 0'}}>
                             <span style={{marginRight: '10px'}}>Removed:</span>
                             <div className="checkbox">
-                                <input type="checkbox" id="cb" name="removed"/>
+                                <input type="checkbox" id="cb" name="removed" checked={this.state.removed}/>
                                 <label htmlFor="cb" onClick={this.onCheckboxChange}></label>
                             </div>
                         </div>
