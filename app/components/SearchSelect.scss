@@ -11,9 +11,9 @@
     position: relative;
     /*transition: all .3s ease-in;*/
     background: white;
-    border-bottom: 1px solid $pearl-aqua;
-    border-right: 1px solid $pearl-aqua;
-    border-left: 1px solid $pearl-aqua;
+    border-bottom: 1px solid $ui;
+    border-right: 1px solid $ui;
+    border-left: 1px solid $ui;
     overflow-y: auto;
 
     ul, li {
@@ -53,7 +53,7 @@
     align-items: center;
 
     .drop-down-btn {
-      border: 1px solid $pearl-aqua;
+      border: 1px solid $ui;
       border-left: none;
       cursor: pointer;
 
@@ -100,8 +100,8 @@
       width: 200px;
       height: 2.4em;
       font-size: 1em;
-      color: $pearl-aqua;
-      border: 1px solid $pearl-aqua;
+      color: black;
+      border: 1px solid $ui;
       border-radius: initial;
       margin: 5px 0 0 0;
     }

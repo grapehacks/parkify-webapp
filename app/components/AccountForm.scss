@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 
   label {
-    color: $pearl-aqua;
+    color: $ui;
     margin: 0;
     font-size: .8em;
 
@@ -120,7 +120,7 @@
       }
       input {
         flex-grow: 2;
-        border: 1px solid $pearl-aqua;
+        border: 1px solid $ui;
         border-radius: initial;
         margin: 5px 0;
         padding: 5px;

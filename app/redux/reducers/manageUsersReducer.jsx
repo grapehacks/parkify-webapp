@@ -2,6 +2,7 @@ import { FETCH_USERS_SUCCESS, FETCH_USERS_FAILED, SEARCH_USERS_FAILED, SEARCH_US
 
 const initialState = {
     users: [],
+    searchUsers: [],
     error: '',
     success: ''
 };
@@ -23,9 +24,14 @@ export default function manageUsersReducer(state = initialState, action = undefi
                 success: action.payload.success
             });
         case FETCH_USERS_SUCCESS:
+            return Object.assign({}, state, {
+                users: action.payload.users,
+                searchUsers: []
+            });
         case SEARCH_USERS_SUCCESS:
             return Object.assign({}, state, {
-                users: action.payload.users
+                users: [],
+                searchUsers: action.payload.users
             });
         case USER_OPERATION_FAILED:
         case FETCH_USERS_FAILED:

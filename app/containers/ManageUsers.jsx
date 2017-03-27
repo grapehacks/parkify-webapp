@@ -19,6 +19,7 @@ class ManageUsers extends React.Component {
         this.onSaveClick = this.onSaveClick.bind(this);
         this.onClearClick = this.onClearClick.bind(this);
         this.onCheckboxChange = this.onCheckboxChange.bind(this);
+        this.getUsersArray = this.getUsersArray.bind(this);
         this.timeout = null;
     }
 
@@ -46,7 +47,13 @@ class ManageUsers extends React.Component {
         if(field === 'search') {
             // debounce for search
             clearTimeout(this.timeout);
-            this.timeout = setTimeout(() => this.props.handleSearch(value), 2000); // 2 sec
+            this.timeout = setTimeout(() => {
+                if(value) {
+                    this.props.handleSearch(value)
+                } else {
+                    this.props.handleGetUsers();
+                }
+            }, 1500); // 1.5 sec
         }
 
         this.props.handleClearMessages();
@@ -62,7 +69,7 @@ class ManageUsers extends React.Component {
     }
 
     onUserSelected(userId) {
-        const user = this.props.users.filter((user) => user._id === userId)[0];
+        const user = this.props.searchUsers.filter((user) => user._id === userId)[0];
         if(user) {
             this.onTableItemClick(user);
         }
@@ -70,7 +77,8 @@ class ManageUsers extends React.Component {
 
     onTableItemClick(item) {
         const temp = Object.assign({}, this.state);
-        const user = this.props.users.filter((user) => user._id === item._id)[0];
+        const usersArray = this.getUsersArray();
+        const user = usersArray.filter((user) => user._id === item._id)[0];
         temp._id = user._id;
         temp.name = user.name;
         temp.email = user.email;
@@ -100,14 +108,20 @@ class ManageUsers extends React.Component {
         return this.setState(temp);
     }
 
+    getUsersArray() {
+        return this.props.users && this.props.users.length ? this.props.users : this.props.searchUsers;
+    }
+
     render() {
         const tableHeader = ['Name', 'Email', 'Licence number', 'Removed'];
         const columnWidth = [30, 20, 25, 10];
         const skipFields = ['_id'];
         const limit = 10;
         const users = [];
-        if(this.props.users) {
-            this.props.users.map((item) => {
+        const searchUsers = [];
+        const usersArray = this.getUsersArray();
+        if(usersArray) {
+            usersArray.map((item) => {
                 users.push({
                     _id: item._id,
                     name: item.name,
@@ -117,6 +131,18 @@ class ManageUsers extends React.Component {
                 });
             });
         }
+        if(this.props.searchUsers && this.props.searchUsers.length) {
+            this.props.searchUsers.map((item) => {
+                searchUsers.push({
+                    _id: item._id,
+                    name: item.name,
+                    email: item.email,
+                    licenceNumber: item.licenceNumber,
+                    removed: item.removed ? 'Yes' : 'No'
+                });
+            });
+        }
+
         if(this.props.success || this.props.error) {
             this.state = this.getClearState();
         }
@@ -129,7 +155,7 @@ class ManageUsers extends React.Component {
                     <div className="manage-users__form">
                         <span>Search user:</span>
                         <SearchSelect
-                            items={users}
+                            items={searchUsers}
                             keyField={'_id'}
                             valueField={'name'}
                             onSelected={this.onUserSelected}
@@ -149,10 +175,10 @@ class ManageUsers extends React.Component {
                             </div>
                         </div>
                         <div style={{display: 'flex', margin: '5px 0', width: '100%', justifyContent: 'space-between'}}>
-                            <button className="subscribe-btn" onClick={this.onSaveClick} >Save</button>
-                            {this.state._id && <button className="subscribe-btn" onClick={this.onDeleteClick} >Delete</button>}
+                            <button className="ui-btn" onClick={this.onSaveClick}>{this.state._id ? 'Update': 'Create'}</button>
+                            {this.state._id && <button className="ui-btn" onClick={this.onDeleteClick} >Delete</button>}
                         </div>
-                        <button className="subscribe-btn" onClick={this.onClearClick}>Clear</button>
+                        <button className="ui-btn" onClick={this.onClearClick}>Clear</button>
                         <div style={{display: 'flex', margin: '5px 0', width: '100%', justifyContent: 'space-between'}}>
                             {this.props.success && <span style={{color: '#7dca84'}}>{this.props.success}</span>}
                             {this.props.error && <span style={{color: '#a94442'}}>{this.props.error}</span>}
@@ -182,6 +208,7 @@ ManageUsers.propTypes = {
 const mapStateToProps = (state) => {
     const props = {
         users: state.manageUsers.users,
+        searchUsers: state.manageUsers.searchUsers,
         error: state.manageUsers.error,
         success: state.manageUsers.success
     };

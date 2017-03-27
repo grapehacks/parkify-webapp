@@ -42,7 +42,7 @@
   }
 
   span {
-    color: $pearl-aqua;
+    color: $ui;
   }
 
   ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -61,18 +61,18 @@
   }
 
   input:not([type='checkbox']) {
-    border: 1px solid $pearl-aqua;
+    border: 1px solid $ui;
     border-radius: initial;
-    color: $pearl-aqua;
+    color: black;
     padding: 5px;
     margin: 5px 0;
     height: 2.4em;
   }
 
   input[type='checkbox'] {
-    border: 1px solid $pearl-aqua;
+    border: 1px solid $ui;
     border-radius: initial;
-    color: $pearl-aqua;
+    color: $ui;
     padding: 5px;
   }
 

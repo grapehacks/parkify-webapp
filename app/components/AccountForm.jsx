@@ -27,7 +27,7 @@ const AccountForm = (props) => {
             <div className="account-licence">
                 <label>Licence number</label>
                 <input type="text" onChange={props.onChange} name="licenceNumber" placeholder="Enter licence number" value={props.licenceNumber}/>
-                <button className="subscribe-btn" onClick={props.onSave}>Save</button>
+                <button className="ui-btn" onClick={props.onSave}>Save</button>
                 {props.error && <span className="account-licence-error">{props.error}</span>}
                 {props.success && <span className="account-licence-success">{props.success}</span>}
             </div>
@@ -43,7 +43,7 @@ const AccountForm = (props) => {
                 <input type="password" onChange={props.onChange} name="newPassword" placeholder="Enter new password" />
                 <label>Confirm new password</label>
                 <input type="password" onChange={props.onChange} name="confirmPassword" placeholder="Confirm new password" />
-                <button className="subscribe-btn" onClick={props.onPasswordSave}>Save</button>
+                <button className="ui-btn" onClick={props.onPasswordSave}>Save</button>
                 {props.error && <span className="account-change-password-error">{props.error}</span>}
                 {props.success && <span className="account-change-password-success">{props.success}</span>}
             </div>

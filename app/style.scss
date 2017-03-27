@@ -244,7 +244,7 @@ footer {
   height: 1.4em;
   margin: 0;
   width: 1.4em;
-  border: 1px solid #7cc;
+  border: 1px solid $ui;
   overflow: hidden;
 
   label {
@@ -268,14 +268,14 @@ footer {
       width: 8px;
     }
 
-    &:hover:after { border-color: #bdd; }
+    &:hover:after { border-color: $ui-light; }
   }
 
   input { display: none; }
 
   input:checked + label:after {
     @include animation(check 0.8s);
-    border-color: #6aa;
+    border-color: $ui;
   }
 
   &.checkbox-alt {
@@ -293,5 +293,16 @@ footer {
 
   @media (min-width: 768px) {
     padding-top: 40px;
+  }
+}
+
+.ui-btn {
+  border: 1px solid $ui;
+  background: white;
+  color: $ui;
+
+  &:hover {
+    border: 1px solid $ui-dark;
+    color: $ui-dark;
   }
 }
