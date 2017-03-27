@@ -43,17 +43,20 @@ class ManageUsers extends React.Component {
         const temp = Object.assign({}, this.state);
         temp[field] = value;
 
+        if(field === 'search') {
+            // debounce for search
+            clearTimeout(this.timeout);
+            this.timeout = setTimeout(() => this.props.handleSearch(value), 2000); // 2 sec
+        }
+
         this.props.handleClearMessages();
         return this.setState(temp);
     }
 
     onSearchChange(value) {
-        // todo remove
-        console.log(value);
-
         const temp = Object.assign({}, this.state);
         temp['search'] = value;
-        this.props.handleSearch();
+        this.props.handleSearch(value);
         this.props.handleClearMessages();
         return this.setState(temp);
     }
@@ -86,6 +89,7 @@ class ManageUsers extends React.Component {
     }
 
     onClearClick() {
+        this.props.handleGetUsers();
         const temp = Object.assign({}, this.state, this.getClearState());
         return this.setState(temp);
     }
@@ -102,7 +106,7 @@ class ManageUsers extends React.Component {
         const skipFields = ['_id'];
         const limit = 10;
         const users = [];
-        const showItems = false; // todo
+        const showItems = !!this.state.search;
         if(this.props.users) {
             this.props.users.map((item) => {
                 users.push({
@@ -130,9 +134,9 @@ class ManageUsers extends React.Component {
                             keyField={'_id'}
                             valueField={'name'}
                             showItems={showItems}
+                            search={this.state.search}
                             onSelected={this.onUserSelected}
-                            textChange={this.onSearchChange}
-                            timeout={2000}/>
+                            onTextChange={this.onChange} />
 
                         <span>User name:</span>
                         <input type="text" name="name" placeholder="Enter user name" onChange={this.onChange} value={this.state.name}/>

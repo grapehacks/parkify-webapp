@@ -6,16 +6,10 @@ class SearchSelect extends React.Component {
     constructor() {
         super();
         this.renderUserNames = this.renderUserNames.bind(this);
-        this.textChange = this.textChange.bind(this);
         this.onSelected = this.onSelected.bind(this);
-        this.timeout = null;
     }
 
-    textChange(event) {
-        const value = event.target.value;
-        // debounce
-        clearTimeout(this.timeout);
-        this.timeout = setTimeout(() => this.props.textChange(value), this.props.timeout ? this.props.timeout : 0);
+    componentDidUpdate() {
     }
 
     onSelected(event) {
@@ -27,11 +21,11 @@ class SearchSelect extends React.Component {
     render() {
         return (
             <div className="select-editable">
-                <select onChange={this.onSelected}> {/*this.nextElementSibling.value=this.value*/}
+                <select id="search-select" onChange={this.onSelected}> {/*this.nextElementSibling.value=this.value*/}
                     <option value=""></option>
                     {this.props.showItems && this.props.items && this.renderUserNames(this.props.items)}
                 </select>
-                <input type="text" name="search" placeholder="Search" onChange={this.textChange}/>
+                <input type="text" name="search" placeholder="Search" onChange={this.props.onTextChange} value={this.props.search}/>
             </div>
         );
     }
@@ -50,10 +44,10 @@ SearchSelect.propTypes = {
     items: PropTypes.array.isRequired,
     keyField: PropTypes.string.isRequired,
     valueField: PropTypes.string.isRequired,
-    textChange: PropTypes.func,
     onSelected: PropTypes.func,
+    onTextChange: PropTypes.func.isRequired,
+    search: PropTypes.string.isRequired,
     limit: PropTypes.number,
-    timeout: PropTypes.number,
     showItems: PropTypes.bool
 };
 

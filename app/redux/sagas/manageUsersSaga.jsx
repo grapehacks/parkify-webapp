@@ -51,6 +51,7 @@ export function* updateUserSaga({payload}) {
     try {
         const token = localStorage.getItem('token');
         const user = {
+            _id: payload.user._id,
             name: payload.user.name,
             email: payload.user.email,
             licenceNumber: payload.user.licenceNumber,

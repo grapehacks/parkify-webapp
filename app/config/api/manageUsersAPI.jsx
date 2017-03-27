@@ -2,9 +2,9 @@
 import * as axios from 'axios';
 import {URL} from '../api';
 
-export const fetchLastDraw = ({token, userNameLike}) => {
+export const searchUsers = ({token, userNameLike}) => {
     return axios
-        .get(URL + `/api/users/like`, {userNameLike}, {
+        .get(URL + `/api/users/like?name=${userNameLike}`, {
             headers: {'x-access-token': token}
         })
         .then(res => res.data);
