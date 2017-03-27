@@ -1,3 +1,5 @@
+@import '../variables';
+
 .login .logo {
   width: 200px;
   min-width: 100px;
@@ -24,8 +26,8 @@
 }
 
 .login {
-  background: #7dcac7;
-  background: linear-gradient(to bottom right,  #7dcaa4 0%, #7dcac7 100%);
+  background: $pearl-aqua;
+  background: linear-gradient(to bottom right,  $light-moss-green 0%, $pearl-aqua 100%);
   position: absolute;
   top: 50%;
   left: 0;
@@ -123,9 +125,9 @@
     text-transform: uppercase;
     padding: 15px 50px;
     border-radius: 50px;
-    border: 2px solid #7dcac7;
+    border: 2px solid $pearl-aqua;
     background: white;
-    color: #7dcac7;;
+    color: $pearl-aqua;
 
     &:hover {
       border: 2px solid #64B1AE;

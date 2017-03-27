@@ -1,3 +1,5 @@
+@import '../variables';
+
 .parkify-table {
 
   p {
@@ -45,14 +47,14 @@
   }
 
   th {
-    background-color: #7dcaa4;
+    background-color: $light-moss-green;
     font-weight: bold;
     color: #fff;
     white-space: nowrap;
   }
 
   tbody th {
-    background-color: #7dcaa4;
+    background-color: $light-moss-green;
   }
 
   tbody tr:nth-child(2n-1) {
@@ -69,7 +71,7 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    color: #7dcaa4;
+    color: $light-moss-green;
     margin: 5px auto;
 
     li {

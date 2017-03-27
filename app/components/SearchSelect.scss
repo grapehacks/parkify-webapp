@@ -1,3 +1,5 @@
+@import '../variables';
+
 .select-editable {
   position:relative;
   background-color:white;
@@ -9,9 +11,9 @@
     position: relative;
     /*transition: all .3s ease-in;*/
     background: white;
-    border-bottom: 1px solid #7dcac7;
-    border-right: 1px solid #7dcac7;
-    border-left: 1px solid #7dcac7;
+    border-bottom: 1px solid $pearl-aqua;
+    border-right: 1px solid $pearl-aqua;
+    border-left: 1px solid $pearl-aqua;
     overflow-y: auto;
 
     ul, li {
@@ -51,7 +53,7 @@
     align-items: center;
 
     .drop-down-btn {
-      border: 1px solid #7dcac7;
+      border: 1px solid $pearl-aqua;
       border-left: none;
       cursor: pointer;
 
@@ -98,8 +100,8 @@
       width: 200px;
       height: 2.4em;
       font-size: 1em;
-      color: #7dcac7;
-      border: 1px solid #7dcac7;
+      color: $pearl-aqua;
+      border: 1px solid $pearl-aqua;
       border-radius: initial;
       margin: 5px 0 0 0;
     }

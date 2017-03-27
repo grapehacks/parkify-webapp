@@ -1,3 +1,5 @@
+@import 'variables';
+
 html, body, #app, .gp-main{
   height: 100%;
   font-family: 'Open Sans';
@@ -58,10 +60,10 @@ body{
   font-weight: bold;
 }
 .icons i .notification.on {
-  background: #7dcac7;
+  background: $pearl-aqua;
 }
 .icons i .notification.off {
-  background: #ca7d7d;
+  background: $old-rose;
 }
 .content {
   padding: 10px 0 0 0;
@@ -112,10 +114,10 @@ footer {
   background-color: #fff;
 }
 .confirmation.modalDecline .button:hover {
-  color: #ca7d7d;
+  color: $old-rose;
 }
 .confirmation.modalApprove .button:hover {
-  color: #7dcaa4;
+  color: $light-moss-green;
 }
 .confirmation .button.yes {
   background: #fff;
@@ -127,14 +129,14 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #7dcaa4;
-  background: -moz-linear-gradient(top,  #7dcaa4 0%, #7dcac7 100%);
-  background: -webkit-linear-gradient(top,  #7dcaa4 0%,#7dcac7 100%);
-  background: linear-gradient(to bottom,  #7dcaa4 0%,#7dcac7 100%);
+  background: $light-moss-green;
+  background: -moz-linear-gradient(top,  $light-moss-green 0%, $pearl-aqua 100%);
+  background: -webkit-linear-gradient(top,  $light-moss-green 0%, $pearl-aqua 100%);
+  background: linear-gradient(to bottom,  $light-moss-green 0%,$pearl-aqua 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dcaa4', endColorstr='#7dcac7',GradientType=0 );
 }
 .modalApprove .button.yes {
-  color: #7dcaa4;
+  color: $light-moss-green;
 }
 .modalDecline {
   text-align: left;
@@ -143,19 +145,24 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #ca937d;
-  background: -moz-linear-gradient(top,  #ca937d 0%, #ca7d7d 100%);
-  background: -webkit-linear-gradient(top,  #ca937d 0%,#ca7d7d 100%);
-  background: linear-gradient(to bottom,  #ca937d 0%,#ca7d7d 100%);
+  background: $antique-brass;
+  background: -moz-linear-gradient(top,  $antique-brass 0%, $old-rose 100%);
+  background: -webkit-linear-gradient(top,  $antique-brass 0%, $old-rose 100%);
+  background: linear-gradient(to bottom,  $antique-brass 0%, $old-rose 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca937d', endColorstr='#ca7d7d',GradientType=0 );
 }
 .modalDecline .button.yes {
-  color: #ca7d7d;
+  color: $old-rose;
 }
 
-.checkbox {
+.checkbox-def {
   color: #fff;
   z-index: -1;
+
+  label {
+    color: white;
+    font-weight: normal;
+  }
 }
 
 .flex-container {
@@ -250,8 +257,8 @@ footer {
       @include transform(scaleX(-1) rotate(180deg + -45deg));
       @include transform-origin(left, top);
 
-      border-right: 4px solid #cee;
-      border-top: 4px solid #cee;
+      border-right: 4px solid white;
+      border-top: 4px solid white;
       content: '';
       display: block;
       height: 20px;

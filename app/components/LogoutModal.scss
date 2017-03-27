@@ -1,3 +1,5 @@
+@import '../variables';
+
 .modal {
   width: 100%;
   height: 100%;
@@ -35,13 +37,13 @@
     }
 
     .subscribe {
-      background: #7dcaa4;
-      background: linear-gradient(to right, #7dcaa4 0%, #7dcac7 100%);
+      background: $light-moss-green;
+      background: linear-gradient(to right, $light-moss-green 0%, $pearl-aqua 100%);
     }
 
     .unsubscribe {
-      background: #ca937d;
-      background: linear-gradient(to right,  #ca937d 0%,#ca7d7d 100%);
+      background: $antique-brass;
+      background: linear-gradient(to right,  $antique-brass 0%, $old-rose 100%);
     }
 
     .modal__container__body {
@@ -66,9 +68,9 @@
 }
 
 .subscribe-btn {
-  border: 1px solid #7dcac7;
+  border: 1px solid $pearl-aqua;
   background: white;
-  color: #7dcac7;
+  color: $pearl-aqua;
 
   &:hover {
     border: 1px solid #64B1AE;
@@ -77,9 +79,9 @@
 }
 
 .unsubscribe-btn {
-  border: 1px solid #ca937d;
+  border: 1px solid $antique-brass;
   background: white;
-  color: #ca937d;
+  color: $antique-brass;
 
   &:hover {
     border: 1px solid #a7765f;

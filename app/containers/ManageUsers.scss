@@ -1,3 +1,5 @@
+@import '../variables';
+
 .manage-users {
   display: flex;
   flex-direction: row;
@@ -40,7 +42,7 @@
   }
 
   span {
-    color: #7dcac7;
+    color: $pearl-aqua;
   }
 
   ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -59,18 +61,18 @@
   }
 
   input:not([type='checkbox']) {
-    border: 1px solid #7dcac7;
+    border: 1px solid $pearl-aqua;
     border-radius: initial;
-    color: #7dcac7;
+    color: $pearl-aqua;
     padding: 5px;
     margin: 5px 0;
     height: 2.4em;
   }
 
   input[type='checkbox'] {
-    border: 1px solid #7dcac7;
+    border: 1px solid $pearl-aqua;
     border-radius: initial;
-    color: #7dcac7;
+    color: $pearl-aqua;
     padding: 5px;
   }
 

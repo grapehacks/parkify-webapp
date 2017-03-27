@@ -1,3 +1,5 @@
+@import '../variables';
+
 .message {
   display: flex;
   margin: 0;
@@ -63,13 +65,13 @@
 }
 
 .subscribe {
-  background: #7dcaa4;
-  background: linear-gradient(to bottom right, #7dcaa4 0%, #7dcac7 100%);
+  background: $light-moss-green;
+  background: linear-gradient(to bottom right, $light-moss-green 0%, $pearl-aqua 100%);
 }
 
 .unsubscribe {
-  background: #ca937d;
-  background: linear-gradient(to bottom right,  #ca937d 0%, #ca7d7d 100%);
+  background: $antique-brass;
+  background: linear-gradient(to bottom right,  $antique-brass 0%, $old-rose 100%);
 }
 
 .info {

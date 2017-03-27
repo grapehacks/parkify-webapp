@@ -24,7 +24,7 @@ class ModalUnsubscribe extends React.Component {
                         <div className="logo pull-left"></div>
                     </div>
                     <p>Are you sure you want tu unsubscribe from the parking card lottery list?</p>
-                    <div className="checkbox">
+                    <div className="checkbox-def">
                         <label>
                             <input type="checkbox" onChange={this.handleRememberMyDecision.bind(this)}/> Remember my decision
                         </label>

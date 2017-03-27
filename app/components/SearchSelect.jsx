@@ -51,14 +51,15 @@ class SearchSelect extends React.Component {
     }
 
     render() {
+        const show = !!(this.props.items && this.props.items.length && this.state.search);
         return (
             <div className="select-editable">
                 <div className="select-editable__field">
                     <input type="text" name="search" placeholder="Search" onChange={this.onChange} value={this.state.search}/>
-                    {!!(this.props.items && this.props.items.length) && <span className="clear-btn" onClick={this.onClearClick}>x</span>}
-                    {!!(this.props.items && this.props.items.length) && <div className="drop-down-btn" onClick={this.onDropDownClick}><span className={this.state.isOpenDropDown ? 'up' : 'down'}></span></div>}
+                    {show && <span className="clear-btn" onClick={this.onClearClick}>x</span>}
+                    {show && <div className="drop-down-btn" onClick={this.onDropDownClick}><span className={this.state.isOpenDropDown ? 'up' : 'down'}></span></div>}
                 </div>
-                {!!(this.props.items && this.props.items.length) &&
+                {show &&
                     <div className={'select-editable__drop-down ' + (this.state.isOpenDropDown ? 'show-drop-down' : 'hide-drop-down')}>
                         <ul>
                             {this.renderValues(this.props.items)}

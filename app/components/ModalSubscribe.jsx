@@ -24,7 +24,7 @@ class ModalSubscribe extends React.Component {
                         <div className="logo pull-left"></div>
                     </div>
                     <p>Are you sure you want to participate in the parking card lottery?</p>
-                    <div className="checkbox">
+                    <div className="checkbox-def">
                         <label>
                             <input type="checkbox" onChange={this.handleRememberMyDecision.bind(this)}/> Remember my decision
                         </label>
