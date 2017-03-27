@@ -2,35 +2,108 @@
   position:relative;
   background-color:white;
   width: 220px;
-  height: 3em;
-  padding: 5px;
-}
-
-.select-editable select {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 1em;
-  width: 220px;
   height: 2.4em;
-  border: 1px solid #7dcac7;
-  border-radius: initial;
-  color: #7dcac7;
-  padding: 5px;
-  margin: 5px 0;
-}
+  margin-bottom: 10px;
 
-.select-editable input {
-  position:absolute;
-  top:0;
-  left:0;
-  width:202px;
-  height: 2.4em;
-  font-size: 1em;
-  color: #7dcac7;
-  border: 1px solid #7dcac7;
-  border-radius: initial;
-  margin: 5px 0;
+  .select-editable__drop-down {
+    position: relative;
+    /*transition: all .3s ease-in;*/
+    background: white;
+    border-bottom: 1px solid #7dcac7;
+    border-right: 1px solid #7dcac7;
+    border-left: 1px solid #7dcac7;
+    overflow-y: auto;
+
+    ul, li {
+      padding: 0;
+      list-style: none;
+      list-style-image: none;
+    }
+
+    li {
+      text-align: left;
+      white-space: nowrap;
+      font-weight: 500;
+      padding: 5px 10px;
+      color: #6C6C6B;
+      transition: all 0.4s;
+      cursor: pointer;
+      border-top: none;
+
+      &:hover {
+        background: #EDEDED;
+      }
+    }
+  }
+  .select-editable__drop-down.show-drop-down {
+    max-height: 11em;
+    pointer-events: all;
+    opacity: 1;
+  }
+  .select-editable__drop-down.hide-drop-down {
+    max-height: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .select-editable__field {
+    display: flex;
+    align-items: center;
+
+    .drop-down-btn {
+      border: 1px solid #7dcac7;
+      border-left: none;
+      cursor: pointer;
+
+      span {
+        border-style: solid;
+        height: 0;
+        width: 0;
+        position: relative;
+      }
+
+      span.down {
+        border-color: #999999 transparent transparent transparent;
+        border-width: 5px 4px 0 4px;
+        top: 1.3em;
+        right: 0;
+      }
+
+      span.up {
+        border-color: transparent transparent #888 transparent;
+        border-width: 0 4px 5px 4px;
+        right: 0;
+        top: -.5em;
+      }
+    }
+
+    .clear-btn {
+      cursor: pointer;
+    }
+
+    div {
+      display: inline;
+      width: 20px;
+      height: 2.4em;
+      margin: 5px 0 0 0;
+    }
+
+    span {
+      position: absolute;
+      right: 27px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 200px;
+      height: 2.4em;
+      font-size: 1em;
+      color: #7dcac7;
+      border: 1px solid #7dcac7;
+      border-radius: initial;
+      margin: 5px 0 0 0;
+    }
+  }
 }
 
 .select-editable select:focus, .select-editable input:focus {

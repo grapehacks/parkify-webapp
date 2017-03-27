@@ -106,7 +106,6 @@ class ManageUsers extends React.Component {
         const skipFields = ['_id'];
         const limit = 10;
         const users = [];
-        const showItems = !!this.state.search;
         if(this.props.users) {
             this.props.users.map((item) => {
                 users.push({
@@ -133,8 +132,6 @@ class ManageUsers extends React.Component {
                             items={users}
                             keyField={'_id'}
                             valueField={'name'}
-                            showItems={showItems}
-                            search={this.state.search}
                             onSelected={this.onUserSelected}
                             onTextChange={this.onChange} />
 
