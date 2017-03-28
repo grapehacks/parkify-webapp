@@ -5,6 +5,7 @@ class Messages extends Component {
     render() {
         return (
             <div className="messages-container">
+                <p className="messages-title">Messages</p>
                 <Notifications />
             </div>
         );

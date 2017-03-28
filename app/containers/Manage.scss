@@ -1,13 +1,13 @@
 @import '../variables';
 
-.manage-users {
+.manage {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
 
-  .manage-users__form {
+  .manage__form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -21,7 +21,7 @@
     }
   }
 
-  .manage-users__table {
+  .manage__table {
     order: 2;
     margin-bottom: 1em;
     display: none;
@@ -36,7 +36,7 @@
     font-size: 2em;
   }
 
-  p.manage-users-title {
+  p.manage-title {
     order: 1;
     width: 100%;
   }
@@ -74,6 +74,7 @@
     border-radius: initial;
     color: $ui;
     padding: 5px;
+    z-index: -1;
   }
 
   button {
@@ -85,6 +86,7 @@
     font-size: 1em;
     width: 7em;
     margin: 5px 0;
+    outline: none;
 
     @media (min-width: 400px) {
       padding: 0.6em 1.2em;

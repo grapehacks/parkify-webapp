@@ -7,6 +7,7 @@ import subscribeSaga from './subscribeSaga';
 import accountSaga from './accountSaga';
 import historySaga from './historySaga';
 import manageUsersSaga from './manageUsersSaga';
+import manageCardsSaga from './manageCardsSaga';
 
 export default function* rootSaga() {
     yield* [
@@ -15,6 +16,7 @@ export default function* rootSaga() {
         fork(subscribeSaga),
         fork(accountSaga),
         fork(historySaga),
-        fork(manageUsersSaga)
+        fork(manageUsersSaga),
+        fork(manageCardsSaga)
     ];
 }

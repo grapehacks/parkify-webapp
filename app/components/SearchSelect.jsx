@@ -19,10 +19,6 @@ class SearchSelect extends React.Component {
         };
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
-    }
-
     onClearClick() {
         // fake clear event
         this.props.onTextChange({target: {name: 'search', value: ''}});

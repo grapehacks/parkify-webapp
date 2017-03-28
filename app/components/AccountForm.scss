@@ -6,6 +6,16 @@
   flex-direction: row-reverse;
   flex-wrap: wrap;
 
+  .account_header {
+    width: 100%;
+    font-size: 1.6em;
+
+    @media (min-width: 400px) {
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+  }
+
   label {
     color: $ui;
     margin: 0;
@@ -81,7 +91,7 @@
         margin: 0;
 
         @media (min-width: 400px) {
-          font-size: 3em;
+          font-size: 2em;
         }
       }
       .account-email {
@@ -95,7 +105,7 @@
     }
 
     .account-licence, .account-change-password {
-      margin-top: 20px;
+      margin: 10px 0;
       justify-content: flex-start;
 
       .account-licence-error, .account-change-password-error {

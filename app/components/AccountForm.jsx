@@ -7,6 +7,8 @@ const AccountForm = (props) => {
     const changePassword = props.isPasswordForm;
     return (
         <div className="account">
+            {!changePassword && <p className="hidden-print account_header">Change licence number</p>}
+            {changePassword && <p className="hidden-print account_header">Change password</p>}
             <div className="account__avatar">
                 {!changePassword && <div><Link className="account-change-password" to="/app/account?change-password=true" onClick={props.onChangeView}>Change password?</Link></div>}
                 {changePassword && <div><Link className="account-change-password" to="/app/account" onClick={props.onChangeView}>Change licence?</Link></div>}
@@ -25,8 +27,8 @@ const AccountForm = (props) => {
     function drawChangeLicenceNumber() {
         return (
             <div className="account-licence">
-                <label>Licence number</label>
-                <input type="text" onChange={props.onChange} name="licenceNumber" placeholder="Enter licence number" value={props.licenceNumber}/>
+                <label>Car licence numbers</label>
+                <input type="text" onChange={props.onChange} name="licenceNumber" placeholder="Each license number should be separated by comma" value={props.licenceNumber}/>
                 <button className="ui-btn" onClick={props.onSave}>Save</button>
                 {props.error && <span className="account-licence-error">{props.error}</span>}
                 {props.success && <span className="account-licence-success">{props.success}</span>}
@@ -38,9 +40,9 @@ const AccountForm = (props) => {
         return (
             <div className="account-change-password">
                 <label>Old password</label>
-                <input type="password" onChange={props.onChange} name="oldPassword" placeholder="Enter old password" />
+                <input type="password" onChange={props.onChange} name="oldPassword" placeholder="Old password" />
                 <label>New password</label>
-                <input type="password" onChange={props.onChange} name="newPassword" placeholder="Enter new password" />
+                <input type="password" onChange={props.onChange} name="newPassword" placeholder="New password, 4-16 digits" />
                 <label>Confirm new password</label>
                 <input type="password" onChange={props.onChange} name="confirmPassword" placeholder="Confirm new password" />
                 <button className="ui-btn" onClick={props.onPasswordSave}>Save</button>

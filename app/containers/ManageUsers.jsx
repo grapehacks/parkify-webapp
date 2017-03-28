@@ -1,5 +1,5 @@
 /* eslint-disable */
-import styles from './ManageUsers.scss';
+import styles from './Manage.scss';
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import ParkifyTable from './ParkifyTable';
@@ -149,10 +149,10 @@ class ManageUsers extends React.Component {
 
         return (
             <div className="content">
-                <div className="manage-users">
-                    <p className="manage-users-title">Manage Users</p>
+                <div className="manage">
+                    <p className="manage-title">Manage Users</p>
 
-                    <div className="manage-users__form">
+                    <div className="manage__form">
                         <span>Search user:</span>
                         <SearchSelect
                             items={searchUsers}
@@ -168,7 +168,7 @@ class ManageUsers extends React.Component {
                         <span>Licence number:</span>
                         <input type="text" name="licenceNumber" placeholder="Enter licence number" onChange={this.onChange} value={this.state.licenceNumber}/>
                         <div style={{display: 'flex', margin: '5px 0'}}>
-                            <span style={{marginRight: '10px'}}>Removed:</span>
+                            <span style={{marginRight: '10px'}}>Removed from draw:</span>
                             <div className="checkbox">
                                 <input type="checkbox" id="cb" name="removed" checked={this.state.removed}/>
                                 <label htmlFor="cb" onClick={this.onCheckboxChange}></label>
@@ -184,7 +184,7 @@ class ManageUsers extends React.Component {
                             {this.props.error && <span style={{color: '#a94442'}}>{this.props.error}</span>}
                         </div>
                     </div>
-                    <div className="manage-users__table">
+                    <div className="manage__table">
                         <ParkifyTable
                             items={users}
                             skipFields={skipFields}

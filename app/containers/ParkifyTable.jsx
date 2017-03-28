@@ -16,9 +16,18 @@ class ParkifyTable extends React.Component {
 
     render() {
         let items = [], tableHeader, tableFooter, tableWidth;
+        let currentPage = this.state.currentPage;
         if (this.props.items) {
-            const startFromIndex = this.props.limit ? this.state.currentPage * this.props.limit : this.state.currentPage;
+            let startFromIndex = this.props.limit ? currentPage * this.props.limit : currentPage;
+            if(startFromIndex >= this.props.items.length) {
+                currentPage = currentPage === 0 ? currentPage : currentPage - 1;
+                startFromIndex = this.props.limit ? currentPage * this.props.limit : currentPage;
+            }
             const endFromIndex = this.props.limit ? startFromIndex + this.props.limit : this.props.items.length;
+
+            if(startFromIndex >= this.props.items.length) {
+                startFromIndex = 0;
+            }
 
             for (let i = startFromIndex, len = endFromIndex; i < len; i++) {
                 items.push(this.renderRow(this.props.items[i], i));
@@ -34,7 +43,7 @@ class ParkifyTable extends React.Component {
         }
         if(this.props.limit && this.props.items) {
             if (this.props.limit < this.props.items.length) {
-                tableFooter = this.renderTableFooter(this.props.limit, this.props.items.length, tableWidth);
+                tableFooter = this.renderTableFooter(this.props.limit, this.props.items.length, tableWidth, currentPage);
             }
         }
 
@@ -74,13 +83,13 @@ class ParkifyTable extends React.Component {
         );
     }
 
-    renderTableFooter(limit, itemsLength, tableWidth) {
+    renderTableFooter(limit, itemsLength, tableWidth, currentPage) {
         const keys = [];
         const pages = itemsLength / limit;
         for (let i = 0, len = pages; i < len; i++) {
             const style = {
-                fontWeight: this.state.currentPage === i ? 'bold' : 'normal',
-                textDecoration: this.state.currentPage === i ? 'underline' : 'none'
+                fontWeight: currentPage === i ? 'bold' : 'normal',
+                textDecoration: currentPage === i ? 'underline' : 'none'
             };
             keys.push(<li style={style} key={'footerPage' + (i + 1)} onClick={this.changePage(i)}>{i + 1}</li>)
         }
@@ -108,7 +117,7 @@ class ParkifyTable extends React.Component {
                 continue;
             }
             if (item.hasOwnProperty(key)) {
-                keys.push(<td key={item[this.props.id] + item[key]} style={{width: this.props.columnWidth[i] + '%'}}>{item[key]}</td>)
+                keys.push(<td key={item[this.props.id] + key + item[key]} style={{width: this.props.columnWidth[i] + '%'}}>{item[key]}</td>)
                 i++;
             }
         }
