@@ -23,15 +23,17 @@ class ModalSubscribe extends React.Component {
                     <div className="menu">
                         <div className="logo pull-left"></div>
                     </div>
-                    <p>Are you sure you want to participate in the parking card lottery?</p>
-                    <div className="checkbox-def">
-                        <label>
-                            <input type="checkbox" onChange={this.handleRememberMyDecision.bind(this)}/> Remember my decision
-                        </label>
-                    </div>
-                    <div className="buttons">
-                        <div onClick={(e) => {e.stopPropagation(); this.props.onClose()}} className="button pull-left">No</div>
-                        <div onClick={(e) => {e.stopPropagation(); this.props.onConfirm(this.state.remember)}} className="button yes pull-right">Yes</div>
+                    <div className="modal-question">
+                        <p>Are you sure you want to participate in the parking card lottery?</p>
+                        <div className="checkbox-def">
+                            <label>
+                                <input type="checkbox" onChange={this.handleRememberMyDecision.bind(this)}/> Remember my decision
+                            </label>
+                        </div>
+                        <div className="buttons">
+                            <div onClick={(e) => {e.stopPropagation(); this.props.onClose()}} className="button pull-left">No</div>
+                            <div onClick={(e) => {e.stopPropagation(); this.props.onConfirm(this.state.remember)}} className="button yes pull-right">Yes</div>
+                        </div>
                     </div>
                 </div>
             </div>

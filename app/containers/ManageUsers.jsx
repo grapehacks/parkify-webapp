@@ -15,7 +15,6 @@ class ManageUsers extends React.Component {
         this.onUserSelected = this.onUserSelected.bind(this);
         this.onChange = this.onChange.bind(this);
         this.onSearchChange = this.onSearchChange.bind(this);
-        this.onDeleteClick = this.onDeleteClick.bind(this);
         this.onSaveClick = this.onSaveClick.bind(this);
         this.onClearClick = this.onClearClick.bind(this);
         this.onCheckboxChange = this.onCheckboxChange.bind(this);
@@ -88,10 +87,6 @@ class ManageUsers extends React.Component {
         return this.setState(temp);
     }
 
-    onDeleteClick() {
-        this.props.handleDelete(this.state._id);
-    }
-
     onSaveClick() {
         this.props.handleSave(this.state);
     }
@@ -113,7 +108,7 @@ class ManageUsers extends React.Component {
     }
 
     render() {
-        const tableHeader = ['Name', 'Email', 'Licence number', 'Removed'];
+        const tableHeader = ['Name', 'Email', 'Licence number', 'Active'];
         const columnWidth = [30, 20, 25, 10];
         const skipFields = ['_id'];
         const limit = 10;
@@ -127,7 +122,7 @@ class ManageUsers extends React.Component {
                     name: item.name,
                     email: item.email,
                     licenceNumber: item.licenceNumber,
-                    removed: item.removed ? 'Yes' : 'No'
+                    removed: !item.removed ? 'Yes' : 'No'
                 });
             });
         }
@@ -138,7 +133,7 @@ class ManageUsers extends React.Component {
                     name: item.name,
                     email: item.email,
                     licenceNumber: item.licenceNumber,
-                    removed: item.removed ? 'Yes' : 'No'
+                    removed: !item.removed ? 'Yes' : 'No'
                 });
             });
         }
@@ -168,7 +163,7 @@ class ManageUsers extends React.Component {
                         <span>Licence number:</span>
                         <input type="text" name="licenceNumber" placeholder="Enter licence number" onChange={this.onChange} value={this.state.licenceNumber}/>
                         <div style={{display: 'flex', margin: '5px 0'}}>
-                            <span style={{marginRight: '10px'}}>Removed from draw:</span>
+                            <span style={{marginRight: '10px'}}>Active:</span>
                             <div className="checkbox">
                                 <input type="checkbox" id="cb" name="removed" checked={this.state.removed}/>
                                 <label htmlFor="cb" onClick={this.onCheckboxChange}></label>
@@ -176,7 +171,6 @@ class ManageUsers extends React.Component {
                         </div>
                         <div style={{display: 'flex', margin: '5px 0', width: '100%', justifyContent: 'space-between'}}>
                             <button className="ui-btn" onClick={this.onSaveClick}>{this.state._id ? 'Update': 'Create'}</button>
-                            {this.state._id && <button className="ui-btn" onClick={this.onDeleteClick} >Delete</button>}
                         </div>
                         <button className="ui-btn" onClick={this.onClearClick}>Clear</button>
                         <div style={{display: 'flex', margin: '5px 0', width: '100%', justifyContent: 'space-between'}}>
@@ -226,9 +220,6 @@ const mapDispatchToProps = (dispatch) => {
             } else {
                 dispatch(createUser({user}));
             }
-        },
-        handleDelete: (_id) => {
-            dispatch(deleteUser({_id}));
         },
         handleGetUsers: () => {
             dispatch(fetchUsers());

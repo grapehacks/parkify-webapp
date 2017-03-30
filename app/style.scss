@@ -84,6 +84,10 @@ footer {
   border: 0;
   margin-bottom: 50px;
 }
+.confirmation .modal-question {
+  max-width: 480px;
+  margin: 0 auto;
+}
 .confirmation .logo {
   background: url('/img/logo-white.png') no-repeat;
   background-size: contain;

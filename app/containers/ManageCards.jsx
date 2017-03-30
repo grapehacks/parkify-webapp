@@ -15,7 +15,6 @@ class ManageCards extends React.Component {
         this.onCardSelected = this.onCardSelected.bind(this);
         this.onChange = this.onChange.bind(this);
         this.onSearchChange = this.onSearchChange.bind(this);
-        this.onDeleteClick = this.onDeleteClick.bind(this);
         this.onSaveClick = this.onSaveClick.bind(this);
         this.onClearClick = this.onClearClick.bind(this);
         this.getCardsArray = this.getCardsArray.bind(this);
@@ -98,10 +97,6 @@ class ManageCards extends React.Component {
         temp.active = card.active;
         this.props.handleClearMessages();
         return this.setState(temp);
-    }
-
-    onDeleteClick() {
-        this.props.handleDelete(this.state._id);
     }
 
     onSaveClick() {
@@ -187,7 +182,6 @@ class ManageCards extends React.Component {
                         </div>
                         <div style={{display: 'flex', margin: '5px 0', width: '100%', justifyContent: 'space-between'}}>
                             <button className="ui-btn" onClick={this.onSaveClick}>{this.state._id ? 'Update': 'Create'}</button>
-                            {this.state._id && <button className="ui-btn" onClick={this.onDeleteClick} >Delete</button>}
                         </div>
                         <button className="ui-btn" onClick={this.onClearClick}>Clear</button>
                         <div style={{display: 'flex', margin: '5px 0', width: '100%', justifyContent: 'space-between'}}>
@@ -237,9 +231,6 @@ const mapDispatchToProps = (dispatch) => {
             } else {
                 dispatch(createCard({card}));
             }
-        },
-        handleDelete: (_id) => {
-            dispatch(deleteCard({_id}));
         },
         handleGetCards: () => {
             dispatch(fetchCards());
