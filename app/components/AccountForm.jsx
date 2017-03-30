@@ -7,11 +7,11 @@ const AccountForm = (props) => {
     const changePassword = props.isPasswordForm;
     return (
         <div className="account">
-            {!changePassword && <p className="hidden-print account_header">Change licence number</p>}
+            {!changePassword && <p className="hidden-print account_header">Change car licence number</p>}
             {changePassword && <p className="hidden-print account_header">Change password</p>}
             <div className="account__avatar">
                 {!changePassword && <div><Link className="account-change-password" to="/app/account?change-password=true" onClick={props.onChangeView}>Change password?</Link></div>}
-                {changePassword && <div><Link className="account-change-password" to="/app/account" onClick={props.onChangeView}>Change licence?</Link></div>}
+                {changePassword && <div><Link className="account-change-password" to="/app/account" onClick={props.onChangeView}>Change car licence number?</Link></div>}
             </div>
             <div className="account__form">
                 <div className="account-info">

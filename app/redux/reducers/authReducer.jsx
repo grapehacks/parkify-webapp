@@ -73,6 +73,7 @@ export default function authReducer(state = initialState, action = undefined) {
         case EDIT_LICENCE_NUMBER_SUCCESS:
             return Object.assign({}, state, {
                 user: action.payload.user,
+                success: 'Car licence number successfully changed.',
                 error: ''
             });
         case CHANGE_PASSWORD_FAILED:
