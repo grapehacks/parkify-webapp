@@ -35,7 +35,11 @@ class LoginForm extends Component {
     submitForm(event){
         event.preventDefault();
         if (!this.props.logging) {
-            this.props.handleSubmit({email: this.state.email, password: this.state.password});
+            let email = this.state.email;
+            if(!email.includes('@')) {
+                email += '@grapeup.com';
+            }
+            this.props.handleSubmit({email, password: this.state.password});
         }
     }
 
