@@ -165,7 +165,7 @@ class ManageUsers extends React.Component {
                         <div style={{display: 'flex', margin: '5px 0'}}>
                             <span style={{marginRight: '10px'}}>Active:</span>
                             <div className="checkbox">
-                                <input type="checkbox" id="cb" name="removed" checked={this.state.removed}/>
+                                <input type="checkbox" id="cb" name="removed" checked={!this.state.removed}/>
                                 <label htmlFor="cb" onClick={this.onCheckboxChange}></label>
                             </div>
                         </div>
@@ -178,7 +178,7 @@ class ManageUsers extends React.Component {
                             {this.props.error && <span style={{color: '#a94442'}}>{this.props.error}</span>}
                         </div>
                     </div>
-                    <div className="manage__table">
+                    <div className="manage__table" style={{width: '70%'}}>
                         <ParkifyTable
                             items={users}
                             skipFields={skipFields}

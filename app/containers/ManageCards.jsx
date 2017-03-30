@@ -189,7 +189,7 @@ class ManageCards extends React.Component {
                             {this.props.error && <span style={{color: '#a94442'}}>{this.props.error}</span>}
                         </div>
                     </div>
-                    <div className="manage__table">
+                    <div className="manage__table" style={{width: '70%'}}>
                         <ParkifyTable
                             items={cards}
                             skipFields={skipFields}
