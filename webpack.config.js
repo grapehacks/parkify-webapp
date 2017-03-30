@@ -4,6 +4,7 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     filename: 'index.html',
     inject: 'body'
 });
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
     entry: './app/index.jsx',
@@ -44,7 +45,10 @@ var config = {
         ]
     },
     plugins: [
-        HtmlWebpackPluginConfig
+        HtmlWebpackPluginConfig,
+        new CopyWebpackPlugin([
+            { from: 'img', to: 'img' }
+        ])
     ]
 };
 
