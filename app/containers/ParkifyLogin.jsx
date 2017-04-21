@@ -1,6 +1,6 @@
 // import React from 'react';
 import {connect} from 'react-redux'
-import {login} from '../redux/actions/authActions.jsx'
+import {loggingIn} from '../redux/actions/authActions'
 import LoginForm from '../components/LoginForm.jsx'
 
 const mapStateToProps = (state) => {
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleSubmit: (credentials) => {
-            dispatch(login(credentials));
+            dispatch(loggingIn({credentials}));
         },
         handleLoaded: () => {
 

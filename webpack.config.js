@@ -4,9 +4,10 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     filename: 'index.html',
     inject: 'body'
 });
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
-    entry: './app/main.jsx',
+    entry: './app/index.jsx',
     output: {
         publicPath: '/',
         path: __dirname + '/build',
@@ -37,13 +38,17 @@ var config = {
                 loaders: [
                     "style",
                     "css",
+                    "autoprefixer",
                     "sass"
                 ]
             }
         ]
     },
     plugins: [
-        HtmlWebpackPluginConfig
+        HtmlWebpackPluginConfig,
+        new CopyWebpackPlugin([
+            { from: 'img', to: 'img' }
+        ])
     ]
 };
 

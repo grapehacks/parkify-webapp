@@ -4,7 +4,8 @@ import Notifications from './../containers/Notifications'
 class Messages extends Component {
     render() {
         return (
-            <div className="messagesContainer">
+            <div className="messages-container">
+                <p className="messages-title">Messages</p>
                 <Notifications />
             </div>
         );

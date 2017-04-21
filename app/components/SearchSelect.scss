@@ -1,0 +1,113 @@
+@import '../variables';
+
+.select-editable {
+  position:relative;
+  background-color:white;
+  width: 220px;
+  height: 2.4em;
+  margin-bottom: 10px;
+
+  .select-editable__drop-down {
+    position: relative;
+    /*transition: all .3s ease-in;*/
+    background: white;
+    border-bottom: 1px solid $ui;
+    border-right: 1px solid $ui;
+    border-left: 1px solid $ui;
+    overflow-y: auto;
+
+    ul, li {
+      padding: 0;
+      list-style: none;
+      list-style-image: none;
+    }
+
+    li {
+      text-align: left;
+      white-space: nowrap;
+      font-weight: 500;
+      padding: 5px 10px;
+      color: #6C6C6B;
+      transition: all 0.4s;
+      cursor: pointer;
+      border-top: none;
+
+      &:hover {
+        background: #EDEDED;
+      }
+    }
+  }
+  .select-editable__drop-down.show-drop-down {
+    max-height: 11em;
+    pointer-events: all;
+    opacity: 1;
+  }
+  .select-editable__drop-down.hide-drop-down {
+    max-height: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .select-editable__field {
+    display: flex;
+    align-items: center;
+
+    .drop-down-btn {
+      border: 1px solid $ui;
+      border-left: none;
+      cursor: pointer;
+
+      span {
+        border-style: solid;
+        height: 0;
+        width: 0;
+        position: relative;
+      }
+
+      span.down {
+        border-color: #999999 transparent transparent transparent;
+        border-width: 5px 4px 0 4px;
+        top: 1.3em;
+        right: 0;
+      }
+
+      span.up {
+        border-color: transparent transparent #888 transparent;
+        border-width: 0 4px 5px 4px;
+        right: 0;
+        top: -.5em;
+      }
+    }
+
+    .clear-btn {
+      cursor: pointer;
+    }
+
+    div {
+      display: inline;
+      width: 20px;
+      height: 2.4em;
+      margin: 5px 0 0 0;
+    }
+
+    span {
+      position: absolute;
+      right: 27px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 200px;
+      height: 2.4em;
+      font-size: 1em;
+      color: black;
+      border: 1px solid $ui;
+      border-radius: initial;
+      margin: 5px 0 0 0;
+    }
+  }
+}
+
+.select-editable select:focus, .select-editable input:focus {
+  outline:none;
+}

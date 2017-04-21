@@ -1,0 +1,90 @@
+@import '../variables';
+
+.modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  z-index: 100;
+
+  .modal__container {
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 50%;
+    max-width: 500px;
+    min-width: 320px;
+    height: auto;
+    z-index: 2000;
+    color: #333;
+
+    .modal__container__header,
+    .modal__container__body {
+      padding: 0.4em;
+    }
+
+    .modal__container__header {
+      font-size: 1.6em;
+      font-weight: 500;
+      color: white;
+    }
+
+    .subscribe {
+      background: $light-moss-green;
+      background: linear-gradient(to right, $light-moss-green 0%, $pearl-aqua 100%);
+    }
+
+    .unsubscribe {
+      background: $antique-brass;
+      background: linear-gradient(to right,  $antique-brass 0%, $old-rose 100%);
+    }
+
+    .modal__container__body {
+      font-size: 1em;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 6em;
+
+      button {
+        padding: 0.6em 1.2em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 2px;
+        font-size: 1em;
+        width: 7em;
+      }
+    }
+  }
+}
+
+.subscribe-btn {
+  border: 1px solid $pearl-aqua;
+  background: white;
+  color: $pearl-aqua;
+
+  &:hover {
+    border: 1px solid #64B1AE;
+    color: #64B1AE;
+  }
+}
+
+.unsubscribe-btn {
+  border: 1px solid $antique-brass;
+  background: white;
+  color: $antique-brass;
+
+  &:hover {
+    border: 1px solid #a7765f;
+    color: #a7765f;
+  }
+}

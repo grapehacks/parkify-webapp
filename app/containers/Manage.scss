@@ -1,0 +1,95 @@
+@import '../variables';
+
+.manage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+
+  .manage__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 2em;
+    order: 3;
+
+    @media (max-width: 400px) {
+      margin-right: 0;
+      margin-bottom: 1em;
+    }
+  }
+
+  .manage__table {
+    order: 2;
+    margin-bottom: 1em;
+    display: none;
+
+    @media (min-width: 600px) {
+      margin-bottom: 2em;
+      display: initial;
+    }
+  }
+
+  p {
+    font-size: 2em;
+  }
+
+  p.manage-title {
+    order: 1;
+    width: 100%;
+  }
+
+  span {
+    color: $ui;
+  }
+
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #D1D1CF;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #D1D1CF;
+    opacity: 1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #D1D1CF;
+    opacity: 1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #D1D1CF;
+  }
+
+  input:not([type='checkbox']) {
+    border: 1px solid $ui;
+    border-radius: initial;
+    color: black;
+    padding: 5px;
+    margin: 5px 0;
+    height: 2.4em;
+  }
+
+  input[type='checkbox'] {
+    border: 1px solid $ui;
+    border-radius: initial;
+    color: $ui;
+    padding: 5px;
+    z-index: -1;
+  }
+
+  button {
+    padding: 0.3em .6em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 1em;
+    width: 7em;
+    margin: 5px 0;
+    outline: none;
+
+    @media (min-width: 400px) {
+      padding: 0.6em 1.2em;
+    }
+  }
+}

@@ -1,22 +1,19 @@
 /* eslint-disable*/
 import * as axios from 'axios';
+import {URL} from '../api';
 
-const subscriptionAPI = (baseURL) => {
-    return {
-        subscribe: (params) => {
-            return axios.post(baseURL + '/api/participate/register', params, {
-                headers: {'x-access-token': localStorage.getItem('token')}
-            })
-                .then(res => res.data);
-        },
-
-        unsubscribe: (params) => {
-            return axios.post(baseURL + '/api/participate/unregister', params, {
-                headers: {'x-access-token': localStorage.getItem('token')}
-            })
-                .then(res => res.data);
-        }
-    }
+export const subscribe = ({params, token}) => {
+    return axios
+        .post(URL + '/api/participate/register', params, {
+            headers: {'x-access-token': token}
+        })
+        .then(res => res.data);
 };
 
-export default subscriptionAPI;
+export const unsubscribe = ({params, token}) => {
+    return axios
+        .post(URL + '/api/participate/unregister', params, {
+                headers: {'x-access-token': token}
+        })
+        .then(res => res.data);
+};

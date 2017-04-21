@@ -1,29 +1,85 @@
-.messagesContainer .messageTopic {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 5px;
-  font-weight: bold;
-}
-.messagesContainer .messageDate {
-  float: right;
-}
-.messagesContainer .messageText {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 5px;
-  margin-bottom: 1px;
+@import '../variables';
+
+.message {
+  display: flex;
+  margin: 0;
+  border: 1px solid #d2d2d2;
+  background-color: #F7F7F5;
+  font-size: .8em;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+
+  @media (min-width: 768px) {
+    margin: 10px;
+    font-size: 1em;
+  }
+
+  &:hover {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+  }
+
+  > div {
+    padding: 5px;
+
+    @media (min-width: 768px) {
+      padding: 10px;
+    }
+  }
+
+  .message__date {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+    font-size: 0.9em;
+    border-right: 1px solid #d2d2d2;
+
+    @media (min-width: 768px) {
+      min-width: 120px;
+      max-width: 120px;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  .message__text {
+    width: 100%;
+    span {
+      display: block;
+    }
+  }
+
+  .message__type {
+    border-left: 1px solid #d2d2d2;
+    width: 20px;
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
 }
 
-.messageType0, .messageType1 {
-background-color: #FFD6CC;
+.subscribe {
+  background: $light-moss-green;
+  background: linear-gradient(to bottom right, $light-moss-green 0%, $pearl-aqua 100%);
 }
-.messageType2, .messageType3  {
-  background-color: #E7F4D3;
+
+.unsubscribe {
+  background: $antique-brass;
+  background: linear-gradient(to bottom right,  $antique-brass 0%, $old-rose 100%);
 }
-.messageType4, .messageType5  {
-  background-color: #D5DEE6;
+
+.info {
+  background: #D5DEE6;
+  background: linear-gradient(to bottom right,  #EEF7FF 0%, #D5DEE6 100%);
 }
-.gp-message.unread{
+
+.unread{
   cursor:pointer;
   font-weight:600;
 }

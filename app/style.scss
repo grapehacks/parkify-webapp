@@ -1,3 +1,5 @@
+@import 'variables';
+
 html, body, #app, .gp-main{
   height: 100%;
   font-family: 'Open Sans';
@@ -58,14 +60,18 @@ body{
   font-weight: bold;
 }
 .icons i .notification.on {
-  background: #7dcac7;
+  background: $pearl-aqua;
 }
 .icons i .notification.off {
-  background: #ca7d7d;
+  background: $old-rose;
 }
 .content {
-  padding: 25px 0;
+  padding: 10px 0 0 0;
   text-align: center;
+
+  @media (min-width: 400px) {
+    padding: 25px 0;
+  }
 }
 
 footer {
@@ -77,6 +83,10 @@ footer {
 .confirmation .menu {
   border: 0;
   margin-bottom: 50px;
+}
+.confirmation .modal-question {
+  max-width: 480px;
+  margin: 0 auto;
 }
 .confirmation .logo {
   background: url('/img/logo-white.png') no-repeat;
@@ -108,10 +118,10 @@ footer {
   background-color: #fff;
 }
 .confirmation.modalDecline .button:hover {
-  color: #ca7d7d;
+  color: $old-rose;
 }
 .confirmation.modalApprove .button:hover {
-  color: #7dcaa4;
+  color: $light-moss-green;
 }
 .confirmation .button.yes {
   background: #fff;
@@ -123,14 +133,14 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #7dcaa4;
-  background: -moz-linear-gradient(top,  #7dcaa4 0%, #7dcac7 100%);
-  background: -webkit-linear-gradient(top,  #7dcaa4 0%,#7dcac7 100%);
-  background: linear-gradient(to bottom,  #7dcaa4 0%,#7dcac7 100%);
+  background: $light-moss-green;
+  background: -moz-linear-gradient(top,  $light-moss-green 0%, $pearl-aqua 100%);
+  background: -webkit-linear-gradient(top,  $light-moss-green 0%, $pearl-aqua 100%);
+  background: linear-gradient(to bottom,  $light-moss-green 0%,$pearl-aqua 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7dcaa4', endColorstr='#7dcac7',GradientType=0 );
 }
 .modalApprove .button.yes {
-  color: #7dcaa4;
+  color: $light-moss-green;
 }
 .modalDecline {
   text-align: left;
@@ -139,36 +149,175 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #ca937d;
-  background: -moz-linear-gradient(top,  #ca937d 0%, #ca7d7d 100%);
-  background: -webkit-linear-gradient(top,  #ca937d 0%,#ca7d7d 100%);
-  background: linear-gradient(to bottom,  #ca937d 0%,#ca7d7d 100%);
+  background: $antique-brass;
+  background: -moz-linear-gradient(top,  $antique-brass 0%, $old-rose 100%);
+  background: -webkit-linear-gradient(top,  $antique-brass 0%, $old-rose 100%);
+  background: linear-gradient(to bottom,  $antique-brass 0%, $old-rose 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca937d', endColorstr='#ca7d7d',GradientType=0 );
 }
 .modalDecline .button.yes {
-  color: #ca7d7d;
+  color: $old-rose;
 }
 
-.login .logo {
-  width: 200px;
-  height: 108px;
-  background: url('/img/logo.png') no-repeat;
-  background-size: contain;
-  margin: 40px auto 80px;
-}
-.login form {
-  margin-bottom: 50px;
-}
-.login input {
-  height: 30px;
-  line-height: 30px;
-  border: 0;
-  border-bottom: 1px solid #000;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  display: block;
-  width: 150px;
-}
-.checkbox {
+.checkbox-def {
   color: #fff;
+  z-index: -1;
+
+  label {
+    color: white;
+    font-weight: normal;
+  }
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  p {
+    margin: 5px;
+    font-size: 0.8em;
+
+    @media (min-width: 400px) {
+      margin: 15px;
+      font-size: 1.2em;
+    }
+  }
+}
+
+.blur {
+  -ms-filter: blur(3px);
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  filter: blur(3px);
+}
+
+// Mixin for keyframes
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} { @content; }
+  @-moz-keyframes #{$name} { @content; }
+  @-ms-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; }
+}
+
+// Mixin for animations
+@mixin animation($prop) {
+  -webkit-animation: $prop;
+  -moz-animation: $prop;
+  -o-animation: $prop;
+  animation: $prop;
+}
+
+@include keyframes(check) {
+  0% { height: 0; width: 0; }
+  25% { height: 0; width: 8px; }
+  50% { height: 20px; width: 8px; }
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+@mixin skew ($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+@mixin transform-origin ($origin1, $origin2) {
+  moz-transform-origin: $origin1 $origin2;
+  -o-transform-origin: $origin1 $origin2;
+  -ms-transform-origin: $origin1 $origin2;
+  -webkit-transform-origin: $origin1 $origin2;
+  transform-origin: $origin1 $origin2;
+}
+
+.checkbox {
+  background-color: #fff;
+  display: inline-block;
+  height: 1.4em;
+  margin: 0;
+  width: 1.4em;
+  border: 1px solid $ui;
+  overflow: hidden;
+
+  label {
+    display: block;
+    height: 1.4em;
+    position: relative;
+    width: 1.4em;
+
+    &:after {
+      @include transform(scaleX(-1) rotate(180deg + -45deg));
+      @include transform-origin(left, top);
+
+      border-right: 4px solid white;
+      border-top: 4px solid white;
+      content: '';
+      display: block;
+      height: 20px;
+      left: 0;
+      position: absolute;
+      top: 10px;
+      width: 8px;
+    }
+
+    &:hover:after { border-color: $ui-light; }
+  }
+
+  input { display: none; }
+
+  input:checked + label:after {
+    @include animation(check 0.8s);
+    border-color: $ui;
+  }
+
+  &.checkbox-alt {
+    label:hover:after {
+      @include animation(check 0.8s ease infinite);
+    }
+    input:checked + label:after {
+      @include animation(none);
+    }
+  }
+}
+
+.messages-container {
+  padding: 10px 0 0 0;
+
+  @media (min-width: 400px) {
+    padding: 25px 0;
+  }
+
+  .messages-title {
+    font-size: 1.6em;
+    width: 100%;
+    text-align: center;
+
+    @media (min-width: 500px) {
+      font-size: 2em;
+    }
+  }
+}
+
+.ui-btn {
+  border: 1px solid $ui;
+  background: white;
+  color: $ui;
+  outline: none;
+
+  &:hover {
+    border: 1px solid $ui-dark;
+    color: $ui-dark;
+  }
 }

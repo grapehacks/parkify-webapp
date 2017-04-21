@@ -32,9 +32,7 @@ class SubscriptionButton extends React.Component {
         const rememberLastChoice = this.props.subscribe ? 'on always' : 'off always';
         const rememberLastChoiceClass = this.props.rememberLastChoice ? rememberLastChoice : rememberLastChoice + ' dn';
         return (
-            <div onClick={() => {
-                this.handleClick()
-            }} className={subscribeClass}>
+            <div onClick={() => { this.handleClick() }} className={subscribeClass}>
                 <div className="icon"></div>
                 <div className={rememberLastChoiceClass}>
                     <i className="fa fa-refresh fa-spin" aria-hidden="true"></i>

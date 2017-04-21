@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateUtils should return correct 'month and day' string 1`] = `"15 April"`;
+
+exports[`DateUtils should return correct day name from date object 1`] = `"Saturday"`;
+
+exports[`DateUtils should return correct month name from date object 1`] = `"April"`;
+
+exports[`DateUtils should return correct month names 1`] = `
+Array [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+]
+`;
+
+exports[`DateUtils should return correct week day names 1`] = `
+Array [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+]
+`;

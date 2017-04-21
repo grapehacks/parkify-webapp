@@ -2,6 +2,7 @@ import React from 'react';
 /*eslint-disable*/
 import style from './Message.scss';
 /*eslint-enable*/
+import DateUtils from '../common/DateUtils';
 
 class Message extends React.Component {
     render() {
@@ -9,19 +10,29 @@ class Message extends React.Component {
         const topic = this.props.topic;
         const text = this.props.text;
         const isReadClass = this.props.isRead ? 'read' : 'unread';
-        const typeClass = 'gp-message messageType' + this.props.type + ' ' + isReadClass;
-        const date = new Date(this.props.date).toLocaleDateString() + ' ' + new Date(this.props.date).toLocaleTimeString();
-
+        let typeClass = '';
+        if(this.props.type <= 1) {
+            typeClass = 'unsubscribe';
+        } else if(this.props.type <= 3) {
+            typeClass = 'subscribe';
+        } else {
+            typeClass = 'info';
+        }
+        const date = new Date(this.props.date);
+        const day = DateUtils.getDayString(date);
+        const monthDay = DateUtils.getMonthDayString(date);
         return (
-            <div className={typeClass} onClick={() => {this.props.handleClick()}}>
-                <div className="messageTopic">
-                    {topic}
-                    <span className="messageDate">
-                        {date}
-                    </span>
+            <div className={isReadClass + ' message'} onClick={this.props.handleClick}>
+                <div className={typeClass + ' message__date'}>
+                    <span>{day}</span>
+                    <span>{monthDay}</span>
+                    <span>{date.getFullYear()}</span>
                 </div>
-                <div className="messageText">
-                    {text}
+                <div className="message__text">
+                    <span>{topic}:</span>
+                    <span>{text}</span>
+                </div>
+                <div className={typeClass + ' message__type'} >
                 </div>
             </div>
         )

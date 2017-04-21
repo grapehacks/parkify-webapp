@@ -1,3 +1,5 @@
+@import '../variables';
+
 .status {
   border-radius: 16px;
   width: 140px;
@@ -6,15 +8,15 @@
   text-align: center;
   text-transform: uppercase;
   font-size: 12px;
-  margin: 35px auto;
+  margin: 25px auto;
   border: 3px solid #ccc;
   color: #ccc;
 }
 .status.on {
-  border: 3px solid #7dcac7;
-  color: #7dcac7;
+  border: 3px solid $pearl-aqua;
+  color: $pearl-aqua;
 }
 .status.off {
-  border: 3px solid #ca7d7d;
-  color: #ca7d7d;
+  border: 3px solid $old-rose;
+  color: $old-rose;
 }
